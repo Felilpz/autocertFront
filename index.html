@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado Digital View</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-header">
+            <img src="grupofarmeslogo.png" alt="Farmes logo">
+        </div>
+        <div class="titulo">
+            <h1>CERTIFICADO DIGITAL VIEW</h1>
+        </div>
+    </header>
+
+    <nav id="nav-infos">
+        <div class="data infostyle">
+            <p>HOJE</p>
+            <P class="datahoje">datahoje</P>
+            <p part="horaatual">hora</p>
+        </div>
+
+        <div class="totalcnpj infostyle">
+            <p>CNPJs CADASTRADOS</p>
+            <p class="qtd-cnpj-total">223</p>
+        </div>
+
+        <div class="cnpj-vencendo infostyle">
+            <p>CNPJs VENCENDO EM 15 DIAS</p> <!-- trocar cnpjs para singular caso tenha apenas 1 cnpj -->
+            <p class="qtd-cnpj-vencendo">3</p>
+            <p class="filtrar-cnpj">
+                <button class="submit">
+                    PESQUISAR
+                </button>
+            </p>
+            <!-- ao clicar, modificar o main e mostrar apenas os cnpjs vencendo em menos de 15 dias.-->
+        </div>
+
+        <div class="ultimos-cnpjs-alterados infostyle">
+            <p>ULTIMOS CNPJS ALTERADOS</p> <!-- trocar cnpjs para singular caso tenha apenas 1 cnpj -->
+            <p class="cnpjs-alterados">4</p>
+            <p class="filtrar-cnpj-alterados">
+                <button class="submit">
+                    PESQUISAR
+                </button>
+            </p>
+            <!-- ao clicar, modificar o main e mostrar apenas os ultimos cnpjs que foram modificados.-->
+        </div>
+    </nav>
+    <nav id="nav-pesquisar">
+        <div class="pesquisar">
+            <h1>PESQUISAR FARMÁCIA</h1>
+            <!-- <input type="search" name="searchCNPJ-name" id="searchCNPJ-id" placeholder="02240668000131">
+            <input type="search" name="searchRAZAO-name" id="searchRAZAO-id" placeholder="rede farmes sul"> -->
+            <button class="pesquisar-button">
+                PESQUISAR
+            </button>
+        </div>
+        <div class="cadastrar">
+            <h1>CADASTRAR FARMÁCIA</h1>
+            <button class="cadastro-button">PESQUISAR</button>
+        </div>
+    </nav>
+
+    <!--usar table data é mais semantico do q div (bottle neck é irrelevante)-->
+    <main>
+        <section>
+            <table id="tabela">
+                <tr class="header-tabela">
+                    <th>CNPJ</th>
+                    <th>RAZÃO SOCIAL</th>
+                    <th>BANDEIRA</th>
+                    <th>VALIDADE</th>
+                    <th>VENCIMENTO</th>
+                    <th>RESPONSÁVEL</th>
+                    <th>NOTIFICAÇÃO MANUAL</th>
+                    <!--Notificação manual deve ser feita com base na manhã, noite (bom dia, boa tarde, boa noite)-->
+                </tr>
+                <tr class="tr-adicionada">
+                    <td class="cnpj-adicionado">022240668000131</td>
+                    <td class="razao-adicionada">REDE DE FARMACIAS ESPIRITO SANTENESE FARMES</td>
+                    <td class="bandeira-adicionada">EXTRA</td>
+                    <td class="validade-adicionada">16/12/2025</td>
+                    <td class="vencimento-adicionado">300 DIAS</td>
+                    <td class="responsavel-adicionado">BRAZ LUIZ BOSI</td>
+                    <td class="botao-adicionado">
+                        <button id="notificacao-manual">
+                            SIM
+                        </button>
+                    </td>
+                </tr>
+
+                <tr class="tr-adicionada">
+                    <td class="cnpj-adicionado">122240668000131</td>
+                    <td class="razao-adicionada">REDE DE FARMACIAS ESPIRITO PAULISTA FARMES</td>
+                    <td class="bandeira-adicionada">FARMES</td>
+                    <td class="validade-adicionada">16/02/2025</td>
+                    <td class="vencimento-adicionado">30 DIAS</td>
+                    <td class="responsavel-adicionado">JOSEMAR COSTA</td>
+                    <td class="botao-adicionado">
+                        <button id="notificacao-manual">
+                            SIM
+                        </button>
+                    </td>
+                </tr>
+
+                <tr class="tr-adicionada">
+                    <td class="cnpj-adicionado">022240666066131</td>
+                    <td class="razao-adicionada">REDE DE DESENVOLVIMENTO MITRI</td>
+                    <td class="bandeira-adicionada">FARMES</td>
+                    <td class="validade-adicionada">16/12/2025</td>
+                    <td class="vencimento-adicionado">300 DIAS</td>
+                    <td class="responsavel-adicionado">DIMITRI CHAGAS PHP SILVA</td>
+                    <td class="botao-adicionado">
+                        <button id="notificacao-manual">
+                            SIM
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+</body>
+
+</html>
