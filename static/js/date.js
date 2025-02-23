@@ -95,3 +95,4 @@ function updateDateAndTime() {
 
 updateDateAndTime();
 setInterval(updateDateAndTime, 1000);
+console.log("just to commit the changes")
