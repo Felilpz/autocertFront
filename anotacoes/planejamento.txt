@@ -1,0 +1,29 @@
+# Como os dados serao armazenados?
+    - Todos os arquivos e informacoes serao armazenadas no banco de dados (postgres).
+
+# Quais informacoes serao exibidas na interface?
+    - Dia de hoje
+    - Quantidade de CNPJs
+    - Link direto para importacao do certificado (acode)
+    - Botao para adicionar loja
+    - Botao para remover loja
+    - Botao para modificar loja
+    - Opcao para por o nome do colaborador
+    - Botao para fazer o envio manualmente do aviso do certificado
+
+    # Colunas
+    * CNPJ
+    * Razao Social
+    * Validade do certificado
+    * Dias para o certificado vencer
+    * Data da proxima notificacao (15 dias)
+    * Checkbox para saber se foi avisado (modificar cor da linha)
+    * Nome do contato
+    * Telefone para contato
+    * Email para contato
+
+# Como sera feita a notificacao ?
+    - As notificacoes serao feitas via Whatsapp (automaticamente + botao para enviar manual)
+
+# Onde a aplicacao ficara hospedada?
+    - A apliocacao ficara hospedada localmente com nginx

@@ -1,0 +1,16 @@
+# Quais stacks serao utilizadas?
+
+Front-End:
+* Bootstrap
+* HTML5
+* CSS3
+* JAVASCRIPT
+
+Back-End:
+* Flask
+* SQLAlchemy
+* Celery
+
+Banco de dados:
+* PostgreSQL
+

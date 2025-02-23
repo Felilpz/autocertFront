@@ -1,0 +1,24 @@
+- ao clicar para enviar manualmente abrir um prompt solicitando nome da pessoa e depois uma confirmação perguntando se quer realmente enviar (vai direto pro chat do zapzap)
+- botão para adicionar nova loja
+- achar onde colocar bandeira posteriormente (filtro por bandeira seria legal)
+- pesquisar farmácia e cadastrar farmácia deve ter apenas o titulo e um botão em baixo, fazneod com que abra um modal para tais funções.
+
+
+### SEPARAR PASTAS DE CSS E CODIGOS JAVASCRIPT POSTERIORMENTE!!!!!! (URGENTE)
+## EX: SIDE-LEFT-ONE NUMA PASTAS
+## EX: SIDE-RIGHT EM OUTRA PASTA
+
+
+### LEMBRAR QUE FICARAM EM PRIMEIRO AS LOJAS QUE TIVEREM COM O CERTIFICADO MAIS PROXIMO DE VENCER
+
+
+### NA OPCAO DE DONO, BOTAR O SOCIO MINORITARIO TAMBEM
+* AO FILTRAR POR SOCIO, TAMBEM APARECER AS LOJAS VINCULADAS DE CADA SOCIO, SEJA MINORITARIO OU MAJORITARIO
+
+
+### PARTE DE CONTATO, APARECERA UM NUMERO... FAZER COM QUE ESTE NUMERO SEJA CLICAVEL E VA DIRETO PARA O WHATSAPP do contato clicado
+### NA PAGINA INICIAL QUE APARECE A LOJA, APARECER SO O CONTATO MAJORITARIO, PARA APARECER AS OUTRAS ABAS, CLICAR NA CANETA DE EDICAO
+### AO CLICAR NA CANETA DE EDICAO, FAZER COM QUE APARECA TAMBEM UMA PARTE PARA NOTIFICAR O SOCIO MINORITARIO
+
+
+# FILTRO REMOVER . / e - DOS CNPJ de toda a pagina
