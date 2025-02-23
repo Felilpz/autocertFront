@@ -285,7 +285,7 @@ a:hover {
   font-style: normal;
   font-size: 1.5em;
   /* margin-bottom: 20px; */
-  background-color: red;
+  /* background-color: red; */
   padding-bottom: 20px;
 }
 
@@ -356,7 +356,6 @@ a:hover {
   font-size: 1.5em;
 
 }
-
 
 .cnpj {
   width: 150px;
