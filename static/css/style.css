@@ -47,6 +47,10 @@
   /* border: 0.5px solid red; */
 }
 
+body {
+  background-color: rgb(233, 232, 232) !important;
+}
+
 a,
 ul,
 ol {
@@ -210,7 +214,7 @@ a:hover {
 
 .side-left-second {
   padding: 20px 0;
-    /* display: inline-block;
+  /* display: inline-block;
   width: 50%;
   border-bottom: 1px solid rgb(182, 178, 178); */
 }
@@ -223,7 +227,7 @@ a:hover {
   text-transform: uppercase;
 }
 
-.side-left-second p {
+.side-left-second p{
   font-style: normal;
   font-size: 2.5em;
   color: #82CBB2;
@@ -244,7 +248,7 @@ a:hover {
 }
 
 .buttonAcode {
-  background-color: white;
+  background-color: #82CBB2;
 	color: #051040;
 	border: none;
   border-radius: 5px;
@@ -257,7 +261,7 @@ a:hover {
 }
 
 .buttonAcode:hover {
-  background-color: #82CBB2;
+  background-color: whitesmoke;
   border-radius: 6% 94% 4% 96% / 100% 0% 100% 0%;
    /* color: #051040; */
   /* border: 1px solid #5ECBA1; */
@@ -267,6 +271,54 @@ a:hover {
   -moz-box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
   cursor: pointer;
   color: #051040;
+}
+
+.side-left-bottom2 {
+  width: 100%;
+  /* min-height: 150px !important; */
+  /* background-color: blue; */
+  background-color: #051040;
+  color: white;
+  padding: 10px;
+  padding: 20px 0;
+  margin: 10px 0;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid rgb(197, 193, 193);
+  -webkit-box-shadow: 1px -3px 11px 3px rgba(5,16,64,0.25);
+  -moz-box-shadow: 1px -3px 11px 3px rgba(5,16,64,0.25);
+  box-shadow: 1px -3px 11px 3px rgba(5,16,64,0.25); 
+  margin-bottom: 10px;
+}
+
+.side-left-bottom2 span{
+  font-style: normal;
+  font-size: 1em;
+  /* font-size: 1.2em; */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.side-left-bottom2 p {
+  margin: 0 auto;
+  width: 30%;
+  font-style: normal;
+  font-size: 2.5em;
+  color: #82CBB2;
+  margin-bottom: 0;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.side-left-bottom2 p:hover {
+  background-color: white;          
+  border-radius: 19% 81% 0% 100% / 90% 12% 88% 10%;
+  color: #051040;
+  border: 1px solid #5ECBA1;
+  transition: ease-in-out .3s;
+  box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
+  -webkit-box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
+  -moz-box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
 }
 
 .side-right {
@@ -365,7 +417,7 @@ a:hover {
   width: 570px;
 }
 
-.bandeira {
+.dias-para-vencer {
   width: 70px;
 }
 
