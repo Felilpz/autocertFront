@@ -1,0 +1,42 @@
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield; /* Other browsers */
+}
+
+/* Hide the arrows in WebKit browsers (Chrome, Safari, Edge) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.btn-close-modal,
+.btn-send-modal {
+  color: whitesmoke;
+  background-color: #051040;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  outline: inherit;
+  margin: 17px 0px;
+}
+
+.btn-close-modal:hover {
+  background-color: red;
+  border-radius: 8% 92% 10% 90% / 100% 10% 90% 0%;
+  transition: ease-in-out .3s; 
+  box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
+  -webkit-box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
+  -moz-box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
+}
+
+.btn-send-modal:hover {
+  background-color: green;
+  border-radius: 6% 94% 4% 96% / 100% 0% 100% 0%;
+  transition: ease-in-out .5s; 
+  box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
+  -webkit-box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
+  -moz-box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
+}
