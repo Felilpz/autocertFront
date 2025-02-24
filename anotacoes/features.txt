@@ -1,36 +1,47 @@
-- ao clicar para enviar manualmente abrir um prompt solicitando nome da pessoa e depois uma confirmação perguntando se quer realmente enviar (vai direto pro chat do zapzap)
-- botão para adicionar nova loja
-- achar onde colocar bandeira posteriormente (filtro por bandeira seria legal)
-- pesquisar farmácia e cadastrar farmácia deve ter apenas o titulo e um botão em baixo, fazneod com que abra um modal para tais funções.
+- botão para adicionar nova loja (FEITO)
+- pesquisar farmácia e cadastrar farmácia deve ter apenas o titulo e um botão em baixo, fazneod com que abra um modal para tais funções. (FEITO DE FORMA DIFERENTE)
+# FILTRO REMOVER . / e - DOS CNPJ de toda a pagina (feito)
 
+
+### CRIAR UM NOVO CARD (LEFT-SIDE) COM AS SEGUINTES INFORMACOES - LOJAS COM CERTIFICADO VENCENDO EM MENOS DE 15 DIAS (NUMERO EM BAIXO E QUANDO CLICA APARECE A LISTA DAS  LOJAS) (FEITO, FALTA PARTE DO JS)
+
+
+
+
+
+
+- ao clicar para enviar manualmente abrir um prompt solicitando nome da pessoa e depois uma confirmação perguntando se quer realmente enviar (vai direto pro chat do zapzap)
+
+- achar onde colocar bandeira posteriormente (filtro por bandeira seria legal)
 
 ### SEPARAR PASTAS DE CSS E CODIGOS JAVASCRIPT POSTERIORMENTE!!!!!! (URGENTE)
 ## EX: SIDE-LEFT-ONE NUMA PASTAS
-## EX: SIDE-RIGHT EM OUTRA PASTA
-
+## EX: SIDE-RIGHT EM OUTRA PAST
 
 ### LEMBRAR QUE FICARAM EM PRIMEIRO AS LOJAS QUE TIVEREM COM O CERTIFICADO MAIS PROXIMO DE VENCER
-
 
 ### NA OPCAO DE DONO, BOTAR O SOCIO MINORITARIO TAMBEM
 * AO FILTRAR POR SOCIO, TAMBEM APARECER AS LOJAS VINCULADAS DE CADA SOCIO, SEJA MINORITARIO OU MAJORITARIO
 
-
 ### PARTE DE CONTATO, APARECERA UM NUMERO... FAZER COM QUE ESTE NUMERO SEJA CLICAVEL E VA DIRETO PARA O WHATSAPP do contato clicado
+
 ### NA PAGINA INICIAL QUE APARECE A LOJA, APARECER SO O CONTATO MAJORITARIO, PARA APARECER AS OUTRAS ABAS, CLICAR NA CANETA DE EDICAO
+
 ### AO CLICAR NA CANETA DE EDICAO, FAZER COM QUE APARECA TAMBEM UMA PARTE PARA NOTIFICAR O SOCIO MINORITARIO
 
-
-# FILTRO REMOVER . / e - DOS CNPJ de toda a pagina
-
-
-### CRIAR UM NOVO CARD (LEFT-SIDE) COM AS SEGUINTES INFORMACOES
-# LOJAS COM CERTIFICADO VENCENDO EM MENOS DE 15 DIAS (NUMERO EM BAIXO E QUANDO CLICA APARECE A LISTA DAS  LOJAS)
-
-
 ### TROCAR O DIAS PARA DIA QUANDO TIVER COM 1 DIA
-
 ## SE A LOJA FOR NOVA E NAO TIVER CERTIFICADO DIGITAL, JOGAR ELA LA PRO TOPO E MUDAR A PARTE DE DIAS PARA VENCER PARA UM X
 
 ### ao clicar em SAIR (EM TODOS OS MODAIS), LIMPAR OS CAMPOS E FECHAR O MODAL
+
 ### AO CLICAR EM REMOVER LOJA, APARECER UM MODAL DE CONFIRMACAO
+
+# ESTILIZAR TODOS OS MODAIS 
+
+# FAZER FILTRO DAS LOJAS VENCENDO EM 15 DIAS
+
+# BOTAR PRA FUNCIONAR O BOTAO DE EDICAO LOJA
+
+# BOTAR PRA FUNCIONAR O BOTAO DE NOTIFICACAO (EMAIL E WHATSASPP{SE O CERTIFICADO ESTIVER >= 15 DIAS, NOTIFICAR APENAS PARA A CERTIFICAMINAS, SE TIVER <= 15 DIAS, NOTIFICAR NO EMAIL E WHATSAPP DO ASSOCIADO})}
+
+# FAZER CABECALHO CNPJ + RAZAO SOCIAL + DIAS VENCIMENTO + BOTOES 
