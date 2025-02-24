@@ -51,9 +51,9 @@
                         </button>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#removeModal">
                             <i class="bi bi-house-dash-fill"></i>
-                        </a>
+                        </button>
                     </li>
                     <li>
                         <a href="#" class="nav-link text-white">
@@ -199,7 +199,32 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn-close-modal" data-bs-dismiss="modal">SAIR</button>
-                    <button type="button" class="btn-send-modal">ENVIAR</button>
+                    <button type="button" class="btn-send-modal" id="add-new-pharmacy">ENVIAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL REMOVE LOJA -->
+    <div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="removeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="remove-pharmacy">REMOVER LOJA</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <!-- Number Fields -->
+                        <div class="mb-3">
+                            <label for="remove-cnpj-modal" class="form-label">CNPJ</label>
+                            <input type="number" class="form-control" id="remove-cnpj-modal" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-close-modal" data-bs-dismiss="modal">SAIR</button>
+                    <button type="button" class="btn-send-modal" id="remove-cnpj">ENVIAR</button>
                 </div>
             </div>
         </div>
