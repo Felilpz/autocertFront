@@ -40,3 +40,40 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-box-shadow: 1px -2px 38px 8px rgba(94, 203, 161, 0.45);
   -moz-box-shadow: 1px -2px 38px 8px rgba(94, 203, 161, 0.45);
 }
+
+/* Estilizacao MODAL */
+#registrationModal { 
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 1em;
+}
+
+.modal-header {
+  background-color: #051040;
+  /* background-color: burlywood; */
+  color: white;
+}
+
+.modal-header .bi-house-add-fill {
+  padding-right: 10px;
+}
+
+.modal-header .bi:hover {
+  transition: none;
+  transform: none;
+  cursor: default;
+
+}
+
+.modal-header > .btn-close {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); 
+}
+
+.modal-body input:focus {
+  box-shadow: 1px solid #6378d6;
+  box-shadow: 0 0 5px #051040;
+}
+
+.modal-body select:focus {
+  outline: 1px solid #6378d6;
+  box-shadow: 0 0 5px #051040;
+}

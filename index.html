@@ -568,49 +568,56 @@
     <!-- Modal ADD LOJA-->
     <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="new-pharmacy">ADICIONAR NOVA LOJA</h5>
+                    <i class="bi bi-house-add-fill"></i>
+                    <h5 class="modal-title" id="new-pharmacy">Adicionar Loja</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div class="mb-3">
+                        <div class="row"> 
+                        <div class="col-md-6 mb-3">
                             <label for="add-cnpj-modal" class="form-label">CNPJ</label>
                             <input type="number" class="form-control" id="add-cnpj-modal" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="add-cellphone-number-modal" class="form-label">TELEFONE</label>
-                            <input type="number" class="form-control" id="add-cellphone-number-modal" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="add-razao-modal" class="form-label">RAZAO SOCIAL</label>
+                        <div class="col-md-6 mb-3">
+                            <label for="add-razao-modal" class="form-label">Razao Social</label>
                             <input type="text" class="form-control" id="add-razao-modal" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="add-owner-modal" class="form-label">RESPONSAVEL</label>
-                            <input type="text" class="form-control" id="add-owner-modal" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="add-flag-modal" class="form-label">BANDEIRA</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="add-flag-modal" class="form-label">Bandeira</label>
                             <select class="form-control" id="add-flag-modal" required>
-                                <option value="">SELECIONE UMA OPCAO</option>
-                                <option value="FARMES">FARMES</option>
-                                <option value="EXTRA">EXTRA</option>
+                                <option value="">Selecione uma opcao</option>
+                                <option value="FARMES">Farmes</option>
+                                <option value="EXTRA">Extra</option>
                                 <option value="MKT">MKT</option>
-                                <option value="FARMESLOG">FARMESLOG</option>
+                                <option value="FARMESLOG">FarmesLog</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="add-email-modal" class="form-label">EMAIL</label>
+                        <div class="col-md-6 mb-3">
+                            <label for="add-owner-modal" class="form-label">Responsavel</label>
+                            <input type="text" class="form-control" id="add-owner-modal" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="add-cellphone-number-modal" class="form-label">Telefone</label>
+                            <input type="number" class="form-control" id="add-cellphone-number-modal" required>
+                        </div>
+                        <div class="col-md-6 mb-3"> <!-- Coluna 2: EMAIL -->
+                            <label for="add-email-modal" class="form-label">Email</label>
                             <input type="email" class="form-control" id="add-email-modal" required>
                         </div>
+                    </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-close-modal" data-bs-dismiss="modal">SAIR</button>
-                    <button type="button" class="btn-send-modal" id="add-new-pharmacy">ENVIAR</button>
+                    <button type="button" class="btn-close-modal" data-bs-dismiss="modal">Sair</button>
+                    <button type="button" class="btn-send-modal" id="add-new-pharmacy">Adicionar</button>
                 </div>
             </div>
         </div>
