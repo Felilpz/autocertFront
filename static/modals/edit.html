@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Conteúdo do modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Editar Informações</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="mb-3">
+                            <label for="cnpj" class="form-label">CNPJ</label>
+                            <input type="text" class="form-control" id="cnpj">
+                        </div>
+                        <div class="mb-3">
+                            <label for="razaoSocial" class="form-label">Razão Social</label>
+                            <input type="text" class="form-control" id="razaoSocial">
+                        </div>
+                        <div class="mb-3">
+                            <label for="bandeira" class="form-label">Bandeira</label>
+                            <input type="text" class="form-control" id="bandeira">
+                        </div>
+                        <div class="mb-3">
+                            <label for="validadeCertificado" class="form-label">Validade do Certificado</label>
+                            <input type="date" class="form-control" id="validadeCertificado">
+                        </div>
+                        <div class="mb-3">
+                            <label for="diasParaVencer" class="form-label">Dias para Vencer</label>
+                            <input type="number" class="form-control" id="diasParaVencer">
+                        </div>
+                        <div class="mb-3">
+                            <label for="dataProximaNotificacao" class="form-label">Data da Próxima Notificação</label>
+                            <input type="date" class="form-control" id="dataProximaNotificacao">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nomeResponsavel" class="form-label">Nome do Responsável</label>
+                            <input type="text" class="form-control" id="nomeResponsavel">
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefoneContato" class="form-label">Telefone para Contato</label>
+                            <input type="tel" class="form-control" id="telefoneContato">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailContato" class="form-label">Email para Contato</label>
+                            <input type="email" class="form-control" id="emailContato">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" id="saveChanges">Salvar mudanças</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

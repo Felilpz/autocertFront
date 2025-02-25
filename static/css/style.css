@@ -368,7 +368,7 @@ a:hover {
   transition: transform 0.3s ease-in-out, padding 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .loja-exemplo p {
@@ -386,7 +386,8 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 40px;
+  width: 60px;
+  /* background-color: red; */
 }
 
 .button-editar, .button-enviar {
@@ -419,8 +420,4 @@ a:hover {
 
 .dias-para-vencer {
   width: 70px;
-}
-
-.buttons-to-act {
-  width: 60px;
 }
