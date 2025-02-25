@@ -330,6 +330,8 @@ a:hover {
   -webkit-box-shadow: 1px -3px 11px 3px rgba(5,16,64,0.25);
   -moz-box-shadow: 1px -3px 11px 3px rgba(5,16,64,0.25);
   box-shadow: 1px -3px 11px 3px rgba(5,16,64,0.25);
+
+  /* overflow-y: auto; */
 }
 
 .side-right-title {
