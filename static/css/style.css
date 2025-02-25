@@ -84,7 +84,7 @@ a:hover {
 }
 
 .bi:hover {
-  color: #8f85eb;
+  color: #1c9c6f;
   transform: scale(1.1);
   cursor: pointer;
   text-decoration: none;
@@ -401,15 +401,14 @@ a:hover {
 	outline: inherit;
 }
 
-.button-editar i{
+.button-editar i, .button-enviar i{
   color: #051040;
   font-size: 1.5em;
 }
 
-.button-enviar i{
-  color: #e6cc3d;
-  font-size: 1.5em;
-
+.bi-bell-fill:hover {
+  color: yellow;
+  text-shadow: 5px 5px 2.5px rgba(0,0,0,0.2);
 }
 
 .cnpj {
@@ -422,4 +421,9 @@ a:hover {
 
 .dias-para-vencer {
   width: 70px;
+}
+
+option, select:has(option:checked) {
+  font-style: italic;
+  font-size: .9em;
 }

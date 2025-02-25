@@ -1,23 +1,24 @@
 #mainDiv {
-    /* background-color: purple; */
-    width: 100%;
-    box-shadow: 1px -2px 20px -3px rgba(82, 82, 82, 0.45);
-    -webkit-box-shadow: 1px -2px 20px -3px rgba(82, 82, 82, 0.45);
-    -moz-box-shadow: 1px -2px 20px -3px rgba(82, 82, 82, 0.45);
-    border-radius: 6px;
-    padding: 10px;
-    transition: transform 0.3s ease-in-out, padding 0.3s ease-in-out,
-      box-shadow 0.3s ease-in-out;
-  
-    display: flex;
-    justify-content: space-around;
-  
-    background-color: #051040;
-    color: white;
+  /* background-color: purple; */
+  width: 100%;
+  box-shadow: 1px -2px 20px -3px rgba(82, 82, 82, 0.45);
+  -webkit-box-shadow: 1px -2px 20px -3px rgba(82, 82, 82, 0.45);
+  -moz-box-shadow: 1px -2px 20px -3px rgba(82, 82, 82, 0.45);
+  border-radius: 6px;
+  padding: 10px;
+  transition: transform 0.3s ease-in-out, padding 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
 
-    position: sticky;
-    top: 0;
-  }
+  display: flex;
+  justify-content: space-around;
+
+  background-color: #051040;
+  color: white;
+
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 
 #cnpjFixed {
   /* color: red; */
@@ -27,23 +28,21 @@
 #razao-socialFixed {
   /* color: blue; */
   width: 570px;
-
 }
 
 #dias-para-vencerFixed {
-    width: 70px;
-    /* color: green; */
+  width: 70px;
+  /* color: green; */
 }
 
 #buttons-to-actFixed {
-    width: 60px;
-    /* display: block; */
-    /* background-color: red; */
-    padding: 5px 0;
+  width: 60px;
+  /* display: block; */
+  /* background-color: red; */
+  padding: 5px 0;
 }
 
 #mainDiv p {
   margin: 0;
   padding: 5px 0;
 }
-

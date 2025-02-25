@@ -577,42 +577,42 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div class="row"> 
-                        <div class="col-md-6 mb-3">
-                            <label for="add-cnpj-modal" class="form-label">CNPJ</label>
-                            <input type="number" class="form-control" id="add-cnpj-modal" required>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="add-cnpj-modal" class="form-label">CNPJ</label>
+                                <input type="number" class="form-control" id="add-cnpj-modal" placeholder="02240668000131" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="add-razao-modal" class="form-label">Razao Social</label>
+                                <input type="text" class="form-control" id="add-razao-modal" placeholder="Renato Cariani Corp" required>
+                            </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="add-razao-modal" class="form-label">Razao Social</label>
-                            <input type="text" class="form-control" id="add-razao-modal" required>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="add-flag-modal" class="form-label">Bandeira</label>
+                                <select class="form-control" id="add-flag-modal" required>
+                                    <option value="">Selecione uma opcao</option>
+                                    <option value="FARMES">Farmes</option>
+                                    <option value="EXTRA">Extra</option>
+                                    <option value="MKT">MKT</option>
+                                    <option value="FARMESLOG">FarmesLog</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="add-owner-modal" class="form-label">Responsavel</label>
+                                <input type="text" class="form-control" id="add-owner-modal" placeholder="Renato Cariani" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="add-flag-modal" class="form-label">Bandeira</label>
-                            <select class="form-control" id="add-flag-modal" required>
-                                <option value="">Selecione uma opcao</option>
-                                <option value="FARMES">Farmes</option>
-                                <option value="EXTRA">Extra</option>
-                                <option value="MKT">MKT</option>
-                                <option value="FARMESLOG">FarmesLog</option>
-                            </select>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="add-cellphone-number-modal" class="form-label">Telefone</label>
+                                <input type="number" class="form-control" id="add-cellphone-number-modal" placeholder="(27) 99262-1084" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="add-email-modal" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="add-email-modal" placeholder="luiz@farmes.com.br" required>
+                            </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="add-owner-modal" class="form-label">Responsavel</label>
-                            <input type="text" class="form-control" id="add-owner-modal" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="add-cellphone-number-modal" class="form-label">Telefone</label>
-                            <input type="number" class="form-control" id="add-cellphone-number-modal" required>
-                        </div>
-                        <div class="col-md-6 mb-3"> <!-- Coluna 2: EMAIL -->
-                            <label for="add-email-modal" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="add-email-modal" required>
-                        </div>
-                    </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -633,10 +633,9 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <!-- Number Fields -->
                         <div class="mb-3">
                             <label for="remove-cnpj-modal" class="form-label">CNPJ</label>
-                            <input type="number" class="form-control" id="remove-cnpj-modal" required>
+                            <input type="number" class="form-control" id="remove-cnpj-modal" placeholder="02240668000131" required>
                         </div>
                     </form>
                 </div>
@@ -662,22 +661,22 @@
                     <div class="mb-3">
                         <label for="filter-by-flag" class="form-label">Filtrar por Bandeira</label>
                         <select class="form-select" id="filter-by-flag">
-                            <option value="">SELECIONAR BANDEIRA</option>
-                            <option value="FARMES">FARMES</option>
-                            <option value="EXTRA">EXTRA</option>
+                            <option value="">Selecionar Bandeira</option>
+                            <option value="FARMES">Farmes</option>
+                            <option value="EXTRA">Extra</option>
                             <option value="MKT">MKT</option>
-                            <option value="FARMESLOG">FARMESLOG</option>
+                            <option value="FARMESLOG">FarmesLog</option>
                         </select>
                     </div>
 
                     <div class="mb-3">
                         <label for="filter-owner" class="form-label">Filtrar por Associado</label>
                         <select class="form-select" id="filter-owner">
-                            <option value="">Select Owner</option>
-                            <option value="John">John Doe</option>
-                            <option value="Jane">Jane Smith</option>
-                            <option value="Alice">Alice Johnson</option>
-                            <option value="Bob">Bob Brown</option>
+                            <option value="">Selecionar associado</option>
+                            <option value="John">Adolpho Messner</option>
+                            <option value="Jane">Ariane Delevedove</option>
+                            <option value="Alice">Gerson Flamengo</option>
+                            <option value="Bob">Bob Carlton</option>
                         </select>
                     </div>
 
