@@ -45,4 +45,10 @@
 #mainDiv p {
   margin: 0;
   padding: 5px 0;
+  font-weight: bolder;
+}
+
+#buttons-to-actFixed p {
+  /* foi dificil de acertar essa em pqp */
+  padding: 0;
 }
