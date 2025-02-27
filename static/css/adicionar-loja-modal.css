@@ -42,7 +42,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /* Estilizacao MODAL */
-#registrationModal { 
+#registrationModal {
   font-family: "Lato", Arial, sans-serif;
   font-size: 1em;
 }
@@ -61,11 +61,11 @@ input[type="number"]::-webkit-outer-spin-button {
   transition: none;
   transform: none;
   cursor: default;
-
 }
 
 .modal-header > .btn-close {
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); 
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%)
+    contrast(100%);
 }
 
 .modal-body input:focus {
