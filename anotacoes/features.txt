@@ -59,3 +59,5 @@
 
 
 # remover animação esdruchula nos hovers
+
+# todos os inputs precisam ser escritos com cada tipo de dado (number = input number, string = input string, int = input int)
