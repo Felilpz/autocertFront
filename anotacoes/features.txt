@@ -51,3 +51,7 @@
 # NUMERO DE DIGITOS MINIMO EM CNPJ = 14 (NAO OMITIR O 0 INICIAL)
 
 # REMOVER DIAS PARA VENCER NA HORA DE EDITAR A LOJA
+
+# consertar bug do ctrl v no botao de adicionar nova loja (cnpj aparece faltando 14 caracteres (quando esta formatado com tracos e barras) e ao chegar no primeiro pontop, apaga o ultimo digito)
+
+# diminuir tamanho da font do input em remover loja

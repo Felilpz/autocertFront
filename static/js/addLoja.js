@@ -54,7 +54,7 @@ document.getElementById('add-new-pharmacy').addEventListener('click', function (
 
     alert('Dados salvos com sucesso!');
 
-    document.getElementById('pharmacy-form').reset();
+    document.getElementById('add-form').reset();
 });
 
 function limitarCaracteres(input, maxLength, mensagemElement) {
