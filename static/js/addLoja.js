@@ -1,26 +1,49 @@
-document.querySelector('#add-cnpj-modal').addEventListener('input', function (e) {
-    let value = e.target.value.replace(/\D/g, '');
-    let formattedValue = '';
+document.getElementById('add-new-pharmacy').addEventListener('click', function () {
+    console.log('funcionando click')
+    const cnpj = document.getElementById('add-cnpj-modal').value.trim();
+    const razaoSocial = document.getElementById('add-razao-modal').value.trim();
+    const bandeira = document.getElementById('add-flag-modal').value.trim();
+    const responsavel = document.getElementById('add-owner-modal').value.trim();
+    const telefone = document.getElementById('add-cellphone-number-modal').value.trim();
+    const email = document.getElementById('add-email-modal').value.trim();
 
-    if (value.length > 0) {
-        formattedValue += '.' + value.substr(0, 2);
+    if (!cnpj) {
+        alert('CNPJ esta vazio');
+        return;
     }
 
-    if (value.length > 2) {
-        formattedValue += '.' + value.substr(2, 3);
+    if (!razaoSocial) {
+        alert('Razão Social esta vazio');
+        return;
     }
 
-    if (value.length > 5) {
-        formattedValue += '.' + value.substr(5, 3);
+    if (!bandeira) {
+        alert('Bandeira nao selecionada');
+        return;
     }
 
-    if (value.length > 8) {
-        formattedValue += '/' + value.substr(8, 4);
+    if (!responsavel) {
+        alert('Responsável vazio');
+        return;
     }
 
-    if (value.length > 12) {
-        formattedValue += '-' + value.substr(12, 2);
+    if (!telefone) {
+        alert('Telefone formato errado ou vazio');
+        return;
     }
 
-    e.target.value = formattedValue;
-});
+    if (!email) {
+        alert('Email vazio ou formato errado');
+        return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('formato de email invalido.');
+        return;
+    }
+
+    console.log('dados enviados:', { cnpj, razaoSocial, bandeira, responsavel, telefone, email });
+    alert('loja adicionada c sucesso!');
+    document.getElementById('pharmacy-form').reset()
+})
