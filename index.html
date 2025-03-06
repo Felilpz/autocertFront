@@ -677,27 +677,29 @@
                 </div>
                 <div class="modal-body">
                     <!-- Filter for Flag -->
-                    <div class="mb-3">
-                        <label for="filter-by-flag" class="form-label">Filtrar por Bandeira</label>
-                        <select class="form-select" id="filter-by-flag">
-                            <option value="">Selecionar Bandeira</option>
-                            <option value="FARMES">Farmes</option>
-                            <option value="EXTRA">Extra</option>
-                            <option value="MKT">MKT</option>
-                            <option value="FARMESLOG">FarmesLog</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="filter-owner" class="form-label">Filtrar por Associado</label>
-                        <select class="form-select" id="filter-owner">
-                            <option value="">Selecionar associado</option>
-                            <option value="John">Adolpho Messner</option>
-                            <option value="Jane">Ariane Delevedove</option>
-                            <option value="Alice">Gerson Flamengo</option>
-                            <option value="Bob">Bob Carlton</option>
-                        </select>
-                    </div>
+                    <form id="filter-form">
+                        <div class="mb-3">
+                            <label for="filter-by-flag" class="form-label">Filtrar por Bandeira</label>
+                            <select class="form-select" id="filter-by-flag">
+                                <option value="">Selecionar Bandeira</option>
+                                <option value="FARMES">Farmes</option>
+                                <option value="EXTRA">Extra</option>
+                                <option value="MKT">MKT</option>
+                                <option value="FARMESLOG">FarmesLog</option>
+                            </select>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="filter-owner" class="form-label">Filtrar por Associado</label>
+                            <select class="form-select" id="filter-owner">
+                                <option value="">Selecionar associado</option>
+                                <option value="John">Adolpho Messner</option>
+                                <option value="Jane">Ariane Delevedove</option>
+                                <option value="Alice">Gerson Flamengo</option>
+                                <option value="Bob">Bob Carlton</option>
+                            </select>
+                        </div>
+                    </form>
                     <!-- Filter for Owner -->
                 </div>
                 <div class="modal-footer">
