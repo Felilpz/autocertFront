@@ -22,11 +22,55 @@ document.addEventListener('DOMContentLoaded', function () {
                     editModal.show();
 
                     document.getElementById('saveChanges').addEventListener('click', function () {
-                        console.log('Dados salvos:', {
-                            cnpj: document.getElementById('cnpj').value,
-                            razaoSocial: document.getElementById('razaoSocial').value,
-                            diasParaVencer: document.getElementById('diasParaVencer').value,
-                        });
+                        let cnpj = document.getElementById('cnpj').value.trim();
+                        let razaoSocial = document.getElementById('razaoSocial').value.trim();
+                        let bandeira = document.getElementById('bandeira').value.trim();
+                        let validadeCertificado = document.getElementById('validadeCertificado').value.trim();
+                        let responsavel = document.getElementById('nomeResponsavel').value.trim();
+                        let telefoneContato = document.getElementById('telefoneContato').value.trim();
+                        let emailContato = document.getElementById('emailContato').value.trim();
+
+                        const dadosEdited = {
+                            cnpj,
+                            razaoSocial,
+                            bandeira,
+                            validadeCertificado,
+                            responsavel,
+                            telefoneContato,
+                            emailContato
+                        };
+
+                        console.log('Dados editados: ', dadosEdited);
+
+                        if (!cnpj) {
+                            alert('CNPJ é obrigatório');
+                            return;
+                        }
+
+                        if (!validadeCertificado) {
+                            alert('Validade do certificado é obrigatória');
+                            return;
+                        }
+
+                        if (!bandeira) {
+                            alert('Bandeira é obrigatória');
+                            return;
+                        }
+
+                        if (!responsavel) {
+                            alert('Nome do responsável é obrigatório');
+                            return;
+                        }
+
+                        if (!telefoneContato) {
+                            alert('Telefone de contato é obrigatório');
+                            return;
+                        }
+
+                        if (!emailContato) {
+                            alert('Email de contato é obrigatório');
+                            return;
+                        }
 
                         editModal.hide();
                     });
@@ -39,64 +83,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
-
-
-document.getElementById('saveChanges').addEventListener('click', function () {
-    let cnpj = document.getElementById('cnpj').value.trim()
-    let razaoSocial = document.getElementById('razaoSocial').value.trim()
-    let bandeira = document.getElementById('bandeira').value.trim()
-    let validadeCertificado = document.getElementById('validadeCertificado').value.trim()
-    //notificacoes é = validadaCertificado - 30
-    //proxima notificacao é validade - dia de hoje
-    let responsavel = document.getElementById('nomeResponsavel').value.trim()
-    let telefoneContato = document.getElementById('telefoneContato').value.trim()
-    let emailContato = document.getElementById('emailContato').value.trim()
-
-    const dadosEdited = {
-        cnpj,
-        razaoSocial,
-        bandeira,
-        validadeCertificado,
-        responsavel,
-        telefoneContato,
-        emailContato
-    }
-
-    console.log('Dados editados: ', dadosEdited)
-
-    if (!cnpj) {
-        alert('CNPJ é obrigatório')
-        return
-    }
-
-    if (!validadeCertificado) {
-        alert('Validade do certificado é obrigatória')
-        return
-    }
-
-    if (!bandeira) {
-        alert('Bandeira é obrigatória')
-        return
-    }
-
-    if (!validadeCertificado) {
-        alert('Validade do certificado é obrigatória')
-        return
-    }
-
-    if (!responsavel) {
-        alert('Nome do responsável é obrigatório')
-        return
-    }
-
-    if (!telefoneContato) {
-        alert('Telefone de contato é obrigatório')
-        return
-    }
-
-    if (!emailContato) {
-        alert('Email de contato é obrigatório')
-        return
-    }
-})
