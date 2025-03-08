@@ -6,34 +6,9 @@ document.getElementById('add-new-pharmacy').addEventListener('click', function (
     const telefone = document.getElementById('add-cellphone-number-modal').value.trim();
     const email = document.getElementById('add-email-modal').value.trim();
 
-    if (!cnpj) {
-        alert('CNPJ esta vazio');
-        return;
-    }
-
-    if (!razaoSocial) {
-        alert('Razão Social esta vazio');
-        return;
-    }
-
-    if (!bandeira) {
-        alert('Bandeira nao selecionada');
-        return;
-    }
-
-    if (!responsavel) {
-        alert('Responsável vazio');
-        return;
-    }
-
-    if (!telefone) {
-        alert('Telefone formato errado ou vazio');
-        return;
-    }
-
-    if (!email) {
-        alert('Email vazio ou formato errado');
-        return;
+    if (!cnpj || !razaoSocial || !bandeira || !responsavel || !telefone || !email) {
+        alert('Todos os campos devem ser preenchidos.');
+        return
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -54,6 +29,32 @@ document.getElementById('add-new-pharmacy').addEventListener('click', function (
 
     alert('Dados salvos com sucesso!');
 
+    const newPharmacyElement = document.createElement('div');
+    newPharmacyElement.classList.add('loja-exemplo');
+
+    newPharmacyElement.innerHTML = `
+        <div class="cnpj">
+            <p>${cnpj}</p>
+        </div>
+        <div class="razao-social">
+            <p>${razaoSocial}</p>
+        </div>
+        <div class="dias-para-vencer">
+            <p>15</p> <!-- Adapte se necessário -->
+        </div>
+        <div class="buttons-to-act">
+            <button type="button" class="button-editar">
+                <i class="bi bi-pencil-square"></i>
+            </button>
+            <button type="button" class="button-enviar" id="notify">
+                <i class="bi bi-bell-fill"></i>
+            </button>
+        </div>
+    `;
+
+    document.querySelector('.side-right-content').appendChild(newPharmacyElement)
+
+
     document.getElementById('add-form').reset();
 });
 
@@ -67,6 +68,10 @@ function limitarCaracteres(input, maxLength, mensagemElement) {
         mensagemElement.textContent = `Caracteres restantes: ${caracteresRestantes}`;
     });
 }
+
+
+
+
 
 // msg para CNPJ
 const cnpjInput = document.getElementById('add-cnpj-modal');

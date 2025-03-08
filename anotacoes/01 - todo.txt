@@ -1,11 +1,3 @@
-
-
-# achar onde colocar bandeira posteriormente (filtro por bandeira seria legal)
-
-### SEPARAR PASTAS DE CSS E CODIGOS JAVASCRIPT POSTERIORMENTE!!!!!! (URGENTE)
-## EX: SIDE-LEFT-ONE NUMA PASTAS
-## EX: SIDE-RIGHT EM OUTRA PAST
-
 ### LEMBRAR QUE FICARAM EM PRIMEIRO AS LOJAS QUE TIVEREM COM O CERTIFICADO MAIS PROXIMO DE VENCER
 
 ### NA OPCAO DE DONO, BOTAR O SOCIO MINORITARIO TAMBEM
@@ -48,3 +40,13 @@
 # remover animação esdruchula nos hovers
 
 # todos os inputs precisam ser escritos com cada tipo de dado (number = input number, string = input string, int = input int)
+
+# AO ADICIONAR NOVA LOJA, POR MAIS QUE APARECAM OS CARACTERES RESTANTES, APENAS LIBERAR O ENVIO SE TODOS OS CARACTERES (NUMBERS) ESTIVEREM PREENCHIDOS.
+
+# consertar bug de ao digitar uma razao social gigante (loja nova), nao ultrapassar a div! (colocar um break-word)
+
+
+
+### SEPARAR PASTAS DE CSS E CODIGOS JAVASCRIPT POSTERIORMENTE!!!!!! (URGENTE)
+## EX: SIDE-LEFT-ONE NUMA PASTAS
+## EX: SIDE-RIGHT EM OUTRA PAST

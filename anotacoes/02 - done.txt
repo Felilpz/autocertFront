@@ -9,3 +9,5 @@
 ### CRIAR UM NOVO CARD (LEFT-SIDE) COM AS SEGUINTES INFORMACOES - LOJAS COM CERTIFICADO VENCENDO EM MENOS DE 15 DIAS (NUMERO EM BAIXO E QUANDO CLICA APARECE A LISTA DAS  LOJAS) (FEITO, FALTA PARTE DO JS)
 
 # ao clicar para enviar manualmente abrir um prompt solicitando nome da pessoa e depois uma confirmação perguntando se quer realmente enviar (vai direto pro chat do zapzap)
+
+# achar onde colocar bandeira posteriormente (filtro por bandeira seria legal)
