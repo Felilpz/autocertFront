@@ -1,19 +1,6 @@
-- botão para adicionar nova loja (FEITO)
-- pesquisar farmácia e cadastrar farmácia deve ter apenas o titulo e um botão em baixo, fazneod com que abra um modal para tais funções. (FEITO DE FORMA DIFERENTE)
-# FILTRO REMOVER . / e - DOS CNPJ de toda a pagina (feito)
-
-# FAZER CABECALHO CNPJ + RAZAO SOCIAL + DIAS VENCIMENTO + BOTOES 
-
-### CRIAR UM NOVO CARD (LEFT-SIDE) COM AS SEGUINTES INFORMACOES - LOJAS COM CERTIFICADO VENCENDO EM MENOS DE 15 DIAS (NUMERO EM BAIXO E QUANDO CLICA APARECE A LISTA DAS  LOJAS) (FEITO, FALTA PARTE DO JS)
 
 
-
-
-
-
-- ao clicar para enviar manualmente abrir um prompt solicitando nome da pessoa e depois uma confirmação perguntando se quer realmente enviar (vai direto pro chat do zapzap)
-
-- achar onde colocar bandeira posteriormente (filtro por bandeira seria legal)
+# achar onde colocar bandeira posteriormente (filtro por bandeira seria legal)
 
 ### SEPARAR PASTAS DE CSS E CODIGOS JAVASCRIPT POSTERIORMENTE!!!!!! (URGENTE)
 ## EX: SIDE-LEFT-ONE NUMA PASTAS
