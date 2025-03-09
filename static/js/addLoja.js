@@ -1,14 +1,15 @@
 document.getElementById('add-new-pharmacy').addEventListener('click', function () {
     const cnpj = document.getElementById('add-cnpj-modal').value.trim();
     const razaoSocial = document.getElementById('add-razao-modal').value.trim();
-    const bandeira = document.getElementById('add-flag-modal').value.trim();
+    const bandeira = document.getElementById('add-flag-modal').value;
     const responsavel = document.getElementById('add-owner-modal').value.trim();
     const telefone = document.getElementById('add-cellphone-number-modal').value.trim();
     const email = document.getElementById('add-email-modal').value.trim();
+    const diasParaVencer = 13;
 
     if (!cnpj || !razaoSocial || !bandeira || !responsavel || !telefone || !email) {
         alert('Todos os campos devem ser preenchidos.');
-        return
+        return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -24,6 +25,7 @@ document.getElementById('add-new-pharmacy').addEventListener('click', function (
         responsavel,
         telefone,
         email,
+        diasParaVencer,
     };
     console.log('dados enviados:', newPharmacy);
 
@@ -31,6 +33,14 @@ document.getElementById('add-new-pharmacy').addEventListener('click', function (
 
     const newPharmacyElement = document.createElement('div');
     newPharmacyElement.classList.add('loja-exemplo');
+
+    newPharmacyElement.dataset.cnpj = cnpj;
+    newPharmacyElement.dataset.razaoSocial = razaoSocial;
+    newPharmacyElement.dataset.bandeira = bandeira;
+    newPharmacyElement.dataset.responsavel = responsavel;
+    newPharmacyElement.dataset.telefone = telefone;
+    newPharmacyElement.dataset.email = email;
+    newPharmacyElement.dataset.diasParaVencer = diasParaVencer;
 
     newPharmacyElement.innerHTML = `
         <div class="cnpj">
@@ -40,7 +50,7 @@ document.getElementById('add-new-pharmacy').addEventListener('click', function (
             <p>${razaoSocial}</p>
         </div>
         <div class="dias-para-vencer">
-            <p>15</p> <!-- Adapte se necessário -->
+            <p>${diasParaVencer}</p>
         </div>
         <div class="buttons-to-act">
             <button type="button" class="button-editar">
@@ -52,8 +62,7 @@ document.getElementById('add-new-pharmacy').addEventListener('click', function (
         </div>
     `;
 
-    document.querySelector('.side-right-content').appendChild(newPharmacyElement)
-
+    document.querySelector('.side-right-content').appendChild(newPharmacyElement);
 
     document.getElementById('add-form').reset();
 });
@@ -69,20 +78,13 @@ function limitarCaracteres(input, maxLength, mensagemElement) {
     });
 }
 
-
-
-
-
-// msg para CNPJ
 const cnpjInput = document.getElementById('add-cnpj-modal');
 const cnpjMensagem = document.createElement('div');
 cnpjMensagem.style.color = 'red';
 cnpjMensagem.style.fontSize = '12px';
-// cnpjMensagem.style.paddingRight = '50px' ver o pq n ta funcionando...
 cnpjInput.insertAdjacentElement('afterend', cnpjMensagem);
 limitarCaracteres(cnpjInput, 14, cnpjMensagem);
 
-// msg para telefone
 const telefoneInput = document.getElementById('add-cellphone-number-modal');
 const telefoneMensagem = document.createElement('div');
 telefoneMensagem.style.color = 'red';

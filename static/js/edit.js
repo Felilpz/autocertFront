@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const editButtons = document.querySelectorAll('.button-editar');
-
-    editButtons.forEach(button => {
-        button.addEventListener('click', function () {
+    document.querySelector('.side-right-content').addEventListener('click', function (event) {
+        if (event.target.closest('.button-editar')) {
+            const button = event.target.closest('.button-editar');
             fetch('static/modals/edit.html')
                 .then(response => response.text())
                 .then(html => {
@@ -11,13 +10,22 @@ document.addEventListener('DOMContentLoaded', function () {
                     const editModal = new bootstrap.Modal(document.getElementById('editModal'));
 
                     const lojaDiv = button.closest('.loja-exemplo');
-                    const cnpj = lojaDiv.querySelector('.cnpj p').textContent;
-                    const razaoSocial = lojaDiv.querySelector('.razao-social p').textContent;
-                    const diasParaVencer = lojaDiv.querySelector('.dias-para-vencer p').textContent;
+                    const cnpj = lojaDiv.dataset.cnpj;
+                    const razaoSocial = lojaDiv.dataset.razaoSocial;
+                    const bandeira = lojaDiv.dataset.bandeira;
+                    const responsavel = lojaDiv.dataset.responsavel;
+                    const telefone = lojaDiv.dataset.telefone;
+                    const email = lojaDiv.dataset.email;
+                    const diasParaVencer = lojaDiv.dataset.diasParaVencer;
 
                     document.getElementById('cnpj').value = cnpj;
                     document.getElementById('razaoSocial').value = razaoSocial;
+                    document.getElementById('nomeResponsavel').value = responsavel;
+                    document.getElementById('telefoneContato').value = telefone;
+                    document.getElementById('emailContato').value = email;
                     document.getElementById('diasParaVencer').value = parseInt(diasParaVencer);
+                    // Set the selected option directly
+                    document.getElementById('bandeira').value = bandeira;
 
                     editModal.show();
 
@@ -42,33 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         console.log('Dados editados: ', dadosEdited);
 
-                        if (!cnpj) {
-                            alert('CNPJ é obrigatório');
-                            return;
-                        }
-
-                        if (!validadeCertificado) {
-                            alert('Validade do certificado é obrigatória');
-                            return;
-                        }
-
-                        if (!bandeira) {
-                            alert('Bandeira é obrigatória');
-                            return;
-                        }
-
-                        if (!responsavel) {
-                            alert('Nome do responsável é obrigatório');
-                            return;
-                        }
-
-                        if (!telefoneContato) {
-                            alert('Telefone de contato é obrigatório');
-                            return;
-                        }
-
-                        if (!emailContato) {
-                            alert('Email de contato é obrigatório');
+                        if (!cnpj || !razaoSocial || !bandeira || !validadeCertificado || !responsavel || !telefoneContato || !emailContato) {
+                            alert('Preencha todos os campos obrigatórios');
                             return;
                         }
 
@@ -80,6 +63,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                 })
                 .catch(error => console.error('Erro ao carregar o modal:', error));
-        });
+        }
     });
 });
