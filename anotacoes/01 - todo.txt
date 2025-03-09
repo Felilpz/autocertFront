@@ -49,6 +49,8 @@
 
 # nao deixar inserir a mesma loja (mesmo cnpj)
 
+# bug encontrado: quando adiciona loja, o limitador de caracteres nao funciona.
+
 ### SEPARAR PASTAS DE CSS E CODIGOS JAVASCRIPT POSTERIORMENTE!!!!!! (URGENTE)
 ## EX: SIDE-LEFT-ONE NUMA PASTAS
 ## EX: SIDE-RIGHT EM OUTRA PAST

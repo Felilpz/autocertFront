@@ -1,5 +1,4 @@
 document.querySelector('.side-right-content').addEventListener('click', function (event) {
-    // Verifica se o botão clicado é o "notify"
     if (event.target.closest('.button-enviar')) {
         console.log('Notificacao clicada');
 

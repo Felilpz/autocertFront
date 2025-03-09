@@ -1,3 +1,5 @@
+import { limitarCaracteres, validateEmail } from './utils.js';
+
 document.getElementById('add-new-pharmacy').addEventListener('click', function () {
     const cnpj = document.getElementById('add-cnpj-modal').value.trim();
     const razaoSocial = document.getElementById('add-razao-modal').value.trim();
@@ -5,16 +7,24 @@ document.getElementById('add-new-pharmacy').addEventListener('click', function (
     const responsavel = document.getElementById('add-owner-modal').value.trim();
     const telefone = document.getElementById('add-cellphone-number-modal').value.trim();
     const email = document.getElementById('add-email-modal').value.trim();
-    const diasParaVencer = 13;
 
     if (!cnpj || !razaoSocial || !bandeira || !responsavel || !telefone || !email) {
         alert('Todos os campos devem ser preenchidos.');
         return;
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (cnpj.length !== 14) {
+        alert('O CNPJ deve conter 14 dígitos.');
+        return;
+    }
+
+    if (!validateEmail(email)) {
         alert('formato de email invalido.');
+        return;
+    }
+
+    if (telefone.length !== 11) {
+        alert('O telefone deve conter 11 dígitos.');
         return;
     }
 
@@ -25,7 +35,6 @@ document.getElementById('add-new-pharmacy').addEventListener('click', function (
         responsavel,
         telefone,
         email,
-        diasParaVencer,
     };
     console.log('dados enviados:', newPharmacy);
 
@@ -40,7 +49,6 @@ document.getElementById('add-new-pharmacy').addEventListener('click', function (
     newPharmacyElement.dataset.responsavel = responsavel;
     newPharmacyElement.dataset.telefone = telefone;
     newPharmacyElement.dataset.email = email;
-    newPharmacyElement.dataset.diasParaVencer = diasParaVencer;
 
     newPharmacyElement.innerHTML = `
         <div class="cnpj">
@@ -50,7 +58,7 @@ document.getElementById('add-new-pharmacy').addEventListener('click', function (
             <p>${razaoSocial}</p>
         </div>
         <div class="dias-para-vencer">
-            <p>${diasParaVencer}</p>
+            <p>14</p>
         </div>
         <div class="buttons-to-act">
             <button type="button" class="button-editar">
@@ -66,17 +74,6 @@ document.getElementById('add-new-pharmacy').addEventListener('click', function (
 
     document.getElementById('add-form').reset();
 });
-
-function limitarCaracteres(input, maxLength, mensagemElement) {
-    input.addEventListener('input', function () {
-        const valor = input.value.trim();
-        if (valor.length > maxLength) {
-            input.value = valor.slice(0, maxLength);
-        }
-        const caracteresRestantes = maxLength - input.value.length;
-        mensagemElement.textContent = `Caracteres restantes: ${caracteresRestantes}`;
-    });
-}
 
 const cnpjInput = document.getElementById('add-cnpj-modal');
 const cnpjMensagem = document.createElement('div');

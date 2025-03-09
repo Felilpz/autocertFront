@@ -1,3 +1,5 @@
+import { limitarCaracteres, validateEmail } from './utils.js';
+
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.side-right-content').addEventListener('click', function (event) {
         if (event.target.closest('.button-editar')) {
@@ -24,10 +26,22 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('telefoneContato').value = telefone;
                     document.getElementById('emailContato').value = email;
                     document.getElementById('diasParaVencer').value = parseInt(diasParaVencer);
-                    // Set the selected option directly
                     document.getElementById('bandeira').value = bandeira;
 
                     editModal.show();
+                    const editCnpjInput = document.getElementById('cnpj');
+                    const editCnpjMensagem = document.createElement('div');
+                    editCnpjMensagem.style.color = 'red';
+                    editCnpjMensagem.style.fontSize = '12px';
+                    editCnpjInput.insertAdjacentElement('afterend', editCnpjMensagem);
+                    limitarCaracteres(editCnpjInput, 14, editCnpjMensagem);
+
+                    const editTelefoneInput = document.getElementById('telefoneContato');
+                    const editTelefoneMensagem = document.createElement('div');
+                    editTelefoneMensagem.style.color = 'red';
+                    editTelefoneMensagem.style.fontSize = '12px';
+                    editTelefoneInput.insertAdjacentElement('afterend', editTelefoneMensagem);
+                    limitarCaracteres(editTelefoneInput, 11, editTelefoneMensagem);
 
                     document.getElementById('saveChanges').addEventListener('click', function () {
                         let cnpj = document.getElementById('cnpj').value.trim();
@@ -52,6 +66,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         if (!cnpj || !razaoSocial || !bandeira || !validadeCertificado || !responsavel || !telefoneContato || !emailContato) {
                             alert('Preencha todos os campos obrigatórios');
+                            return;
+                        }
+                        if (cnpj.length !== 14) {
+                            alert('O CNPJ deve conter 14 dígitos.');
+                            return;
+                        }
+                        if (telefoneContato.length !== 11) {
+                            alert('O telefone deve conter 11 dígitos.');
+                            return;
+                        }
+                        if (!validateEmail(emailContato)) {
+                            alert('formato de email invalido.');
                             return;
                         }
 
