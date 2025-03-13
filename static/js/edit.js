@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('diasParaVencer').value = parseInt(diasParaVencer);
                     document.getElementById('bandeira').value = bandeira;
 
+                    console.log("aqui" + bandeira);
+
+
                     editModal.show();
                     const editCnpjInput = document.getElementById('cnpj');
                     const editCnpjMensagem = document.createElement('div');
