@@ -46,6 +46,7 @@ async function addNewPharmacy() {
             },
             body: JSON.stringify(newPharmacy),
         });
+        console.log(response)
 
         if (!response.ok) {
             const errorData = await response.json();
@@ -93,6 +94,7 @@ async function addNewPharmacy() {
 
         document.getElementById('add-form').reset();
     } catch (error) {
+        console.log(newPharmacy)
         console.error('Erro ao enviar dados para a API:', error);
         alert('Erro ao salvar dados. Verifique o console para mais detalhes.');
     }
