@@ -38,7 +38,7 @@ async function addNewPharmacy() {
     };
 
     try {
-        const apiurl = 'http://127.0.0.1:5000/lojas'; // Define the API URL here
+        const apiurl = 'http://127.0.0.1:5000/lojas'
         const response = await fetch(apiurl, {
             method: 'POST',
             headers: {
