@@ -3,12 +3,12 @@ import { limitarCaracteres, validateEmail } from './utils.js';
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.side-right-content').addEventListener('click', function (event) {
         if (event.target.closest('.button-editar')) {
+
             const button = event.target.closest('.button-editar');
             fetch('static/modals/edit.html')
                 .then(response => response.text())
                 .then(html => {
                     document.getElementById('modalContainer').innerHTML = html;
-
                     const editModal = new bootstrap.Modal(document.getElementById('editModal'));
 
                     const lojaDiv = button.closest('.loja-exemplo');
@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     const telefone = lojaDiv.dataset.telefone;
                     const email = lojaDiv.dataset.email;
                     const diasParaVencer = lojaDiv.dataset.diasParaVencer;
+                    console.log(lojaDiv.dataset)
+
+                    // console.log(razaoSocial, responsavel)
 
                     document.getElementById('cnpj').value = cnpj;
                     document.getElementById('razaoSocial').value = razaoSocial;
@@ -28,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('diasParaVencer').value = parseInt(diasParaVencer);
                     document.getElementById('bandeira').value = bandeira;
 
-                    console.log("aqui" + bandeira);
+                    // console.log("aqui" + bandeira);
 
 
                     editModal.show();
