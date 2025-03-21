@@ -59,38 +59,37 @@ async function addNewPharmacy() {
         console.log('Dados enviados com sucesso:', data);
         alert('Dados salvos com sucesso!');
 
-        // Create and append the new pharmacy element to the DOM
-        const newPharmacyElement = document.createElement('div');
-        newPharmacyElement.classList.add('loja-exemplo');
+        // const newPharmacyElement = document.createElement('div');
+        // newPharmacyElement.classList.add('loja-exemplo');
 
-        newPharmacyElement.dataset.cnpj = cnpj;
-        newPharmacyElement.dataset.razaoSocial = razaoSocial;
-        newPharmacyElement.dataset.bandeira = bandeira;
-        newPharmacyElement.dataset.responsavel = responsavel;
-        newPharmacyElement.dataset.telefone = telefone;
-        newPharmacyElement.dataset.email = email;
+        // newPharmacyElement.dataset.cnpj = cnpj;
+        // newPharmacyElement.dataset.razaoSocial = razaoSocial;
+        // newPharmacyElement.dataset.bandeira = bandeira;
+        // newPharmacyElement.dataset.responsavel = responsavel;
+        // newPharmacyElement.dataset.telefone = telefone;
+        // newPharmacyElement.dataset.email = email;
 
-        newPharmacyElement.innerHTML = `
-            <div class="cnpj">
-                <p>${cnpj}</p>
-            </div>
-            <div class="razao-social">
-                <p>${razaoSocial}</p>
-            </div>
-            <div class="dias-para-vencer">
-                <p>14</p>
-            </div>
-            <div class="buttons-to-act">
-                <button type="button" class="button-editar">
-                    <i class="bi bi-pencil-square"></i>
-                </button>
-                <button type="button" class="button-enviar" id="notify">
-                    <i class="bi bi-bell-fill"></i>
-                </button>
-            </div>
-        `;
+        // newPharmacyElement.innerHTML = `
+        //     <div class="cnpj">
+        //         <p>${cnpj}</p>
+        //     </div>
+        //     <div class="razao-social">
+        //         <p>${razaoSocial}</p>
+        //     </div>
+        //     <div class="dias-para-vencer">
+        //         <p>14</p>
+        //     </div>
+        //     <div class="buttons-to-act">
+        //         <button type="button" class="button-editar">
+        //             <i class="bi bi-pencil-square"></i>
+        //         </button>
+        //         <button type="button" class="button-enviar" id="notify">
+        //             <i class="bi bi-bell-fill"></i>
+        //         </button>
+        //     </div>
+        // `;
 
-        document.querySelector('.side-right-content').appendChild(newPharmacyElement);
+        // document.querySelector('.side-right-content').appendChild(newPharmacyElement);
 
         document.getElementById('add-form').reset();
     } catch (error) {

@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         const dadosEdited = {
                             cnpj,
-                            razaoSocial,
+                            razaosocial,
                             bandeira,
                             validadeCertificado,
                             responsavel,
