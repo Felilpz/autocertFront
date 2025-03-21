@@ -58,6 +58,7 @@ async function addNewPharmacy() {
         const data = await response.json();
         console.log('Dados enviados com sucesso:', data);
         alert('Dados salvos com sucesso!');
+        location.reload()
 
         // const newPharmacyElement = document.createElement('div');
         // newPharmacyElement.classList.add('loja-exemplo');
