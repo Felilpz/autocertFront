@@ -16,7 +16,7 @@ function exibirNovaLoja(loja) {
     newPharmacyElement.classList.add('loja-exemplo');
 
     newPharmacyElement.dataset.cnpj = loja.cnpj;
-    newPharmacyElement.dataset.razaoSocial = loja.razaoSocial;
+    newPharmacyElement.dataset.razaoSocial = loja.razaosocial;
     newPharmacyElement.dataset.bandeira = loja.bandeira;
     newPharmacyElement.dataset.responsavel = loja.responsavel;
     newPharmacyElement.dataset.telefone = loja.telefone;
