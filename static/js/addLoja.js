@@ -5,6 +5,7 @@ async function addNewPharmacy() {
     const razaoSocial = document.getElementById('add-razao-modal').value.trim();
     const bandeira = document.getElementById('add-flag-modal').value;
     const responsavel = document.getElementById('add-owner-modal').value.trim();
+    console.log(responsavel)
     const telefone = document.getElementById('add-cellphone-number-modal').value.trim();
     const email = document.getElementById('add-email-modal').value.trim();
 
@@ -47,6 +48,7 @@ async function addNewPharmacy() {
             body: JSON.stringify(newPharmacy),
         });
         console.log(response)
+        console.log(response.responsavel)
 
         if (!response.ok) {
             const errorData = await response.json();
@@ -57,6 +59,7 @@ async function addNewPharmacy() {
 
         const data = await response.json();
         console.log('Dados enviados com sucesso:', data);
+        console.log(responsavel + 'paipy')
         alert('Dados salvos com sucesso!');
         location.reload()
 

@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const razaoSocial = lojaDiv.dataset.razaoSocial;
                     const bandeira = lojaDiv.dataset.bandeira;
                     const responsavel = lojaDiv.dataset.responsavel;
+                    console.log(responsavel) // ja ta vindo undefined
                     const telefone = lojaDiv.dataset.telefone;
                     const email = lojaDiv.dataset.email;
                     const diasParaVencer = lojaDiv.dataset.diasParaVencer;

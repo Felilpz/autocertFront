@@ -19,6 +19,7 @@ function exibirNovaLoja(loja) {
     newPharmacyElement.dataset.razaoSocial = loja.razaosocial;
     newPharmacyElement.dataset.bandeira = loja.bandeira;
     newPharmacyElement.dataset.responsavel = loja.responsavel;
+    console.log(loja.responsavel)
     newPharmacyElement.dataset.telefone = loja.telefone;
     newPharmacyElement.dataset.email = loja.email;
     newPharmacyElement.dataset.diasParaVencer = 14;
