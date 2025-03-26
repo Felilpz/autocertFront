@@ -1,4 +1,6 @@
 import { limitarCaracteres, validateEmail } from './utils.js';
+import { carregarLojas } from './script.js';
+
 
 async function addNewPharmacy() {
     const cnpj = document.getElementById('add-cnpj-modal').value.trim();
@@ -61,45 +63,13 @@ async function addNewPharmacy() {
         console.log('Dados enviados com sucesso:', data);
         console.log(responsavel + 'paipy')
         alert('Dados salvos com sucesso!');
-        location.reload()
-
-        // const newPharmacyElement = document.createElement('div');
-        // newPharmacyElement.classList.add('loja-exemplo');
-
-        // newPharmacyElement.dataset.cnpj = cnpj;
-        // newPharmacyElement.dataset.razaoSocial = razaoSocial;
-        // newPharmacyElement.dataset.bandeira = bandeira;
-        // newPharmacyElement.dataset.responsavel = responsavel;
-        // newPharmacyElement.dataset.telefone = telefone;
-        // newPharmacyElement.dataset.email = email;
-
-        // newPharmacyElement.innerHTML = `
-        //     <div class="cnpj">
-        //         <p>${cnpj}</p>
-        //     </div>
-        //     <div class="razao-social">
-        //         <p>${razaoSocial}</p>
-        //     </div>
-        //     <div class="dias-para-vencer">
-        //         <p>14</p>
-        //     </div>
-        //     <div class="buttons-to-act">
-        //         <button type="button" class="button-editar">
-        //             <i class="bi bi-pencil-square"></i>
-        //         </button>
-        //         <button type="button" class="button-enviar" id="notify">
-        //             <i class="bi bi-bell-fill"></i>
-        //         </button>
-        //     </div>
-        // `;
-
-        // document.querySelector('.side-right-content').appendChild(newPharmacyElement);
-
+        window.reload;
+        carregarLojas();
         document.getElementById('add-form').reset();
     } catch (error) {
         console.log(newPharmacy)
-        console.error('Erro ao enviar dados para a API:', error);
-        alert('Erro ao salvar dados. Verifique o console para mais detalhes.');
+        console.error('Erro ao enviar dados para a api:', error);
+        alert('Erro ao salvar dados. Verifique o console.');
     }
 }
 

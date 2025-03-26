@@ -1,3 +1,4 @@
+// /home/felilpz/Desktop/projetos/autocertFront/static/js/script.js
 let apiurl = 'http://127.0.0.1:5000/lojas';
 
 function carregarLojas() {
@@ -5,8 +6,17 @@ function carregarLojas() {
         .then(response => response.json())
         .then(data => {
             const container = document.querySelector('.side-right-content');
+            // container.innerHTML = ''; // REMOVA ESTA LINHA
+            const mainDiv = document.getElementById('mainDiv'); // PEGA O mainDiv
 
-            data.forEach(loja => exibirNovaLoja(loja));
+            // Limpa apenas as linhas de lojas existentes (se houver)
+            const existingRows = container.querySelectorAll('.loja-exemplo');
+            existingRows.forEach(row => row.remove());
+
+            data.forEach(loja => {
+                const lojaRow = exibirNovaLoja(loja); // CRIA A LINHA DA LOJA
+                container.insertBefore(lojaRow, mainDiv.nextSibling); // INSERE APÓS O mainDiv
+            });
         })
         .catch(error => console.error("Erro ao carregar lojas:", error));
 }
@@ -43,8 +53,9 @@ function exibirNovaLoja(loja) {
                 </button>
             </div>
         `;
-
-    document.querySelector('.side-right-content').appendChild(newPharmacyElement);
+    return newPharmacyElement;
 }
 
 document.addEventListener("DOMContentLoaded", carregarLojas);
+
+export { carregarLojas };
