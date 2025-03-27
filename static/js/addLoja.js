@@ -7,7 +7,6 @@ async function addNewPharmacy() {
     const razaoSocial = document.getElementById('add-razao-modal').value.trim();
     const bandeira = document.getElementById('add-flag-modal').value;
     const responsavel = document.getElementById('add-owner-modal').value.trim();
-    console.log(responsavel)
     const telefone = document.getElementById('add-cellphone-number-modal').value.trim();
     const email = document.getElementById('add-email-modal').value.trim();
 
@@ -33,7 +32,7 @@ async function addNewPharmacy() {
 
     const newPharmacy = {
         cnpj,
-        razaosocial: razaoSocial, // Corrected key name
+        razaoSocial,
         bandeira,
         responsavel,
         telefone,
@@ -50,12 +49,11 @@ async function addNewPharmacy() {
             body: JSON.stringify(newPharmacy),
         });
         console.log(response)
-        // console.log(response.responsavel) // response object does not have responsavel property
 
         if (!response.ok) {
             const errorData = await response.json();
             console.error('Erro ao enviar dados para a API:', errorData);
-            alert(`Erro ao salvar dados: ${response.statusText}`); // Corrected template literal
+            alert(`Erro ao salvar dados: ${response.statusText}`);
             return;
         }
 
@@ -63,7 +61,6 @@ async function addNewPharmacy() {
         console.log('Dados enviados com sucesso:', data);
         console.log(responsavel + 'paipy')
         alert('Dados salvos com sucesso!');
-        // window.reload; // window.reload is not a function, use location.reload()
         location.reload();
         carregarLojas();
         document.getElementById('add-form').reset();

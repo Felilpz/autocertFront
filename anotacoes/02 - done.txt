@@ -10,4 +10,10 @@
 
 # ao clicar para enviar manualmente abrir um prompt solicitando nome da pessoa e depois uma confirmação perguntando se quer realmente enviar (vai direto pro chat do zapzap)
 
-# achar onde colocar bandeira posteriormente (filtro por bandeira seria legal)
+# achar onde colocar bandeira posteriormente (filtro por bandeira seria legal) [RESOLVIDO]
+
+# bug encontrado: quando adiciona loja, o limitador de caracteres nao funciona. [RESOLVIDO]
+
+# modal precisa fechar ao adicionar uma nova loja (location.reload()) [RESOLVIDO]
+
+# consertar bug de ao digitar uma razao social gigante (loja nova), nao ultrapassar a div! (colocar um break-word) [RESOLVIDO]
