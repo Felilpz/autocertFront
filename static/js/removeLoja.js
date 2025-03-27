@@ -1,53 +1,14 @@
-<<<<<<< HEAD
-document.getElementById('remove-cnpj').addEventListener('click', async function () {
-=======
 import { limitarCaracteres } from './utils.js';
 import { carregarLojas } from './script.js';
 
 const removeCNPJ = document.getElementById('remove-cnpj').addEventListener('click', async function () {
->>>>>>> 4946309 (need to add reload after add a loja)
-    console.log('click funcionando');
+    // console.log('click funcionando');
 
     const cnpjInput = document.getElementById('remove-cnpj-modal').value.trim();
     console.log(`CNPJ para remover: ${cnpjInput}`);
 
     if (!cnpjInput) {
         alert('Por favor, insira um CNPJ válido.');
-        return;
-    }
-
-<<<<<<< HEAD
-    const confirmarRemocao = confirm('Tem certeza que deseja remover esta loja?');
-
-    if (confirmarRemocao) {
-        try {
-            const response = await fetch('/lojas/desativar', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ cnpj: cnpjInput }),
-            });
-
-            const data = await response.json();
-            if (response.ok) {
-                alert('Loja removida com sucesso!');
-            } else {
-                alert(`Erro: ${data.message}`);
-            }
-        } catch (error) {
-            console.error('Erro ao remover loja:', error);
-            alert('Erro ao tentar remover a loja.');
-        }
-    } else {
-        console.log('Operação cancelada');
-    }
-
-    document.getElementById('remove-form').reset();
-});
-=======
-    if (!cnpjInput) {
-        alert('Por favor, insira o CNPJ da loja que deseja remover.');
         return;
     }
 
@@ -103,4 +64,3 @@ removeCNPJMensagem.style.color = 'red';
 removeCNPJMensagem.style.fontSize = '12px';
 removeCNPJLabel.insertAdjacentElement('afterend', removeCNPJMensagem);
 limitarCaracteres(removeCNPJLabel, 14, removeCNPJMensagem);
->>>>>>> 4946309 (need to add reload after add a loja)

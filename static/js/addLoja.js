@@ -33,7 +33,7 @@ async function addNewPharmacy() {
 
     const newPharmacy = {
         cnpj,
-        razaoSocial,
+        razaosocial: razaoSocial, // Corrected key name
         bandeira,
         responsavel,
         telefone,
@@ -50,12 +50,12 @@ async function addNewPharmacy() {
             body: JSON.stringify(newPharmacy),
         });
         console.log(response)
-        console.log(response.responsavel)
+        // console.log(response.responsavel) // response object does not have responsavel property
 
         if (!response.ok) {
             const errorData = await response.json();
             console.error('Erro ao enviar dados para a API:', errorData);
-            alert(`Erro ao salvar dados: ${response.statusText}`);
+            alert(`Erro ao salvar dados: ${response.statusText}`); // Corrected template literal
             return;
         }
 
@@ -63,13 +63,14 @@ async function addNewPharmacy() {
         console.log('Dados enviados com sucesso:', data);
         console.log(responsavel + 'paipy')
         alert('Dados salvos com sucesso!');
-        window.reload;
+        // window.reload; // window.reload is not a function, use location.reload()
+        location.reload();
         carregarLojas();
         document.getElementById('add-form').reset();
     } catch (error) {
         console.log(newPharmacy)
-        console.error('Erro ao enviar dados para a api:', error);
-        alert('Erro ao salvar dados. Verifique o console.');
+        console.error('Erro ao enviar dados para a API:', error);
+        alert('Erro ao salvar dados. Verifique o console para mais detalhes.');
     }
 }
 
