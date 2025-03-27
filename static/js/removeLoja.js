@@ -45,14 +45,13 @@ const removeCNPJ = document.getElementById('remove-cnpj').addEventListener('clic
         if (desativarResponse.ok) {
             console.log('Loja desativada com sucesso!');
             alert('Loja desativada com sucesso!');
-            carregarLojas();
+            location.reload();
         } else {
-            alert('Erro ao desativar a loja.');
-            console.error('Erro ao desativar a loja:', await desativarResponse.json());
+            alert('Erro ao remover a loja.');
+            console.error('erro ao desativar loja:', await desativarResponse.json());
         }
     } catch (error) {
-        console.error('Erro ao processar a remoção:', error);
-        alert('Erro ao processar a remoção. Verifique o console para mais detalhes.');
+        console.error('erro ao desativar loja:', error);
     } finally {
         document.getElementById('remove-form').reset();
     }
