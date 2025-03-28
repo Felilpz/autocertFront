@@ -42,7 +42,6 @@ function exibirNovaLoja(loja) {
                 <p>${loja.razaosocial}</p>
             </div>
             <div class="dias-para-vencer">
-            // valor aqui precisa 
                 <p>13</p>
             </div>
             <div class="buttons-to-act">
