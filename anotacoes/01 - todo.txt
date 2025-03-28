@@ -36,20 +36,14 @@
 
 # diminuir tamanho da font do input em remover loja
 
-
 # remover animação esdruchula nos hovers
 
 # todos os inputs precisam ser escritos com cada tipo de dado (number = input number, string = input string, int = input int)
 
 # AO ADICIONAR NOVA LOJA, POR MAIS QUE APARECAM OS CARACTERES RESTANTES, APENAS LIBERAR O ENVIO SE TODOS OS CARACTERES (NUMBERS) ESTIVEREM PREENCHIDOS.
 
-# consertar bug de ao digitar uma razao social gigante (loja nova), nao ultrapassar a div! (colocar um break-word)
-
-# modal precisa fechar ao adicionar uma nova loja
-
 # nao deixar inserir a mesma loja (mesmo cnpj)
 
-# bug encontrado: quando adiciona loja, o limitador de caracteres nao funciona.
 
 ### SEPARAR PASTAS DE CSS E CODIGOS JAVASCRIPT POSTERIORMENTE!!!!!! (URGENTE)
 ## EX: SIDE-LEFT-ONE NUMA PASTAS

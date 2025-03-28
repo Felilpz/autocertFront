@@ -6,16 +6,16 @@ function carregarLojas() {
         .then(response => response.json())
         .then(data => {
             const container = document.querySelector('.side-right-content');
-            // container.innerHTML = ''; // REMOVA ESTA LINHA
-            const mainDiv = document.getElementById('mainDiv'); // PEGA O mainDiv
+            // container.innerHTML = '';
+            const mainDiv = document.getElementById('mainDiv');
 
             // Limpa apenas as linhas de lojas existentes (se houver)
             const existingRows = container.querySelectorAll('.loja-exemplo');
             existingRows.forEach(row => row.remove());
 
             data.forEach(loja => {
-                const lojaRow = exibirNovaLoja(loja); // CRIA A LINHA DA LOJA
-                container.insertBefore(lojaRow, mainDiv.nextSibling); // INSERE APÓS O mainDiv
+                const lojaRow = exibirNovaLoja(loja);
+                container.insertBefore(lojaRow, mainDiv.nextSibling);
             });
         })
         .catch(error => console.error("Erro ao carregar lojas:", error));
@@ -42,7 +42,8 @@ function exibirNovaLoja(loja) {
                 <p>${loja.razaosocial}</p>
             </div>
             <div class="dias-para-vencer">
-                <p>14</p>
+            // valor aqui precisa 
+                <p>13</p>
             </div>
             <div class="buttons-to-act">
                 <button type="button" class="button-editar">

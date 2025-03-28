@@ -1,10 +1,30 @@
-document.getElementById('lojasVencendo').addEventListener('click', function () {
-    console.log('click funcionando LOJASVENCENDO')
+const apiurl = 'http://127.0.0.1:5000/lojas';
+fetch(apiurl)
+    .then(response => response.json())
+    .then(data => {
+        const lojasVencendo = data.reduce((acc, loja) => {
+            // a logica nao pode ser baseada no resltado do array, preciso primeiro pegar a a validade_certificado e e fazer todos os calculos até que me retorne o o valor <= 15 dias. nao posso tambem esquecer de 
+            if (loja.diasParaVencer <= 15) {
+                return acc + 1;
+            }
+            return acc;
+        }, 0);
+        document.getElementById('lojasVencendo').textContent = lojasVencendo;
+    })
+    .catch(error => console.error("erro no carregar das lojas:", error));
 
-    let i;
-    for (i = 0; i < 9; i++) {
-        console.log(i)
-    }
-
-    //inside this function, i need to  show on the html the exatly count of lojas that the have the days <= 15d
-})
+document.addEventListener('DOMContentLoaded', function () {
+    const apiurl = 'http://127.0.0.1:5000/lojas';
+    fetch(apiurl)
+        .then(response => response.json())
+        .then(data => {
+            const lojasVencendo = data.reduce((acc, loja) => {
+                if (loja.diasParaVencer <= 15) {
+                    return acc + 1;
+                }
+                return acc;
+            }, 0);
+            document.getElementById('lojasVencendo').textContent = lojasVencendo;
+        })
+        .catch(error => console.error("erro no carregar das lojas", error));
+});
