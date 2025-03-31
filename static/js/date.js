@@ -21,69 +21,38 @@ function updateDateAndTime() {
     const secondS = now.getSeconds();
 
     // switch case for day of the wek
-    switch (dayofweekS) {
-        case 0:
-            dayoftheweek.textContent = 'Domingo';
-            break;
-        case 1:
-            dayoftheweek.textContent = 'Segunda-Feira';
-            break;
-        case 2:
-            dayoftheweek.textContent = 'Terça-Feira';
-            break;
-        case 3:
-            dayoftheweek.textContent = 'Quarta-Feira';
-            break;
-        case 4:
-            dayoftheweek.textContent = 'Quinta-Feira';
-            break;
-        case 5:
-            dayoftheweek.textContent = 'Sexta-Feira';
-            break;
-        case 6:
-            dayoftheweek.textContent = 'Sábado';
-            break;
+    const diasDaSemana = {
+        0: 'Domingo',
+        1: 'Segunda-Feira',
+        2: 'Terça-Feira',
+        3: 'Quarta-Feira',
+        4: 'Quinta-Feira',
+        5: 'Sexta-Feira',
+        6: 'Sábado'
     }
 
+    dayoftheweek.textContent = diasDaSemana[dayofweekS];
+
+
     //switch case for month
-    switch (monthS) {
-        case 0:
-            month.textContent = 'Janeiro';
-            break;
-        case 1:
-            month.textContent = 'Fevereiro';
-            break;
-        case 2:
-            month.textContent = 'Março';
-            break;
-        case 3:
-            month.textContent = 'Abril';
-            break;
-        case 4:
-            month.textContent = 'Maio';
-            break;
-        case 5:
-            month.textContent = 'Junho';
-            break;
-        case 6:
-            month.textContent = 'Julho';
-            break;
-        case 7:
-            month.textContent = 'Agosto';
-            break;
-        case 8:
-            month.textContent = 'Setembro';
-            break;
-        case 9:
-            month.textContent = 'Outubro';
-            break;
-        case 10:
-            month.textContent = 'Novembro';
-            break;
-        case 11:
-            month.textContent = 'Dezembro';
-            break;
-    }
+    const monthNames = {
+        0: 'Janeiro',
+        1: 'Fevereiro',
+        2: 'Março',
+        3: 'Abril',
+        4: 'Maio',
+        5: 'Junho',
+        6: 'Julho',
+        7: 'Agosto',
+        8: 'Setembro',
+        9: 'Outubro',
+        10: 'Novembro',
+        11: 'Dezembro'
+    };
+
+    month.textContent = monthNames[monthS];
+    console.log()
+
 
     // update in html
     dayofthemonth.textContent = dayofmonthS;
@@ -98,9 +67,10 @@ function updateDateAndTime() {
 const today = new Date();
 const day = today.getDate().toString().padStart(2, '0');
 const monthNumber = (today.getMonth() + 1).toString().padStart(2, '0');
-const yearNumber = today.getFullYear().toString().slice(-2);
+const yearNumber = today.getFullYear().toString();
 
-const todayFormatted = `${yearNumber}/${monthNumber}/${day}`;
+const todayFormatted = `${yearNumber}-${monthNumber}-${day}`;
+console.log(todayFormatted)
 
 
 updateDateAndTime();

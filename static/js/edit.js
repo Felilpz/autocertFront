@@ -16,13 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     const razaoSocial = lojaDiv.dataset.razaoSocial;
                     const bandeira = lojaDiv.dataset.bandeira;
                     const responsavel = lojaDiv.dataset.responsavel;
-                    console.log(responsavel) // ja ta vindo undefined
                     const telefone = lojaDiv.dataset.telefone;
                     const email = lojaDiv.dataset.email;
                     const diasParaVencer = lojaDiv.dataset.diasParaVencer;
-                    console.log(lojaDiv.dataset)
-
+                    const validade_certificado = lojaDiv.dataset.validade_certificado;
                     // console.log(razaoSocial, responsavel)
+                    console.log(lojaDiv)
 
                     document.getElementById('cnpj').value = cnpj;
                     document.getElementById('razaoSocial').value = razaoSocial;
@@ -31,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('emailContato').value = email;
                     document.getElementById('diasParaVencer').value = parseInt(diasParaVencer);
                     document.getElementById('bandeira').value = bandeira;
+                    document.getElementById('validadeCertificado').value = validade_certificado;
 
                     // console.log("aqui" + bandeira);
 
