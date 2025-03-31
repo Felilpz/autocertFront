@@ -1,5 +1,6 @@
 import { limitarCaracteres, validateEmail } from './utils.js';
 import { carregarLojas } from './script.js';
+import { todayFormatted } from './date.js';
 
 
 async function addNewPharmacy() {
@@ -9,6 +10,8 @@ async function addNewPharmacy() {
     const responsavel = document.getElementById('add-owner-modal').value.trim();
     const telefone = document.getElementById('add-cellphone-number-modal').value.trim();
     const email = document.getElementById('add-email-modal').value.trim();
+    const validade_certificado = todayFormatted;
+
 
     if (!cnpj || !razaoSocial || !bandeira || !responsavel || !telefone || !email) {
         alert('Todos os campos devem ser preenchidos.');
@@ -37,6 +40,7 @@ async function addNewPharmacy() {
         responsavel,
         telefone,
         email,
+        validade_certificado
     };
 
     try {

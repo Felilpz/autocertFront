@@ -93,5 +93,17 @@ function updateDateAndTime() {
     second.textContent = secondS.toString().padStart(2, '0');
 }
 
+
+//storing date
+const today = new Date();
+const day = today.getDate().toString().padStart(2, '0');
+const monthNumber = (today.getMonth() + 1).toString().padStart(2, '0');
+const yearNumber = today.getFullYear().toString().slice(-2);
+
+const todayFormatted = `${yearNumber}/${monthNumber}/${day}`;
+
+
 updateDateAndTime();
 setInterval(updateDateAndTime, 1000);
+
+export { todayFormatted }
