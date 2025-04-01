@@ -32,6 +32,7 @@ function exibirNovaLoja(loja) {
     // console.log(loja.responsavel)
     newPharmacyElement.dataset.telefone = loja.telefone;
     newPharmacyElement.dataset.email = loja.email;
+    newPharmacyElement.dataset.validade_certificado = loja.validade_certificado;
     newPharmacyElement.dataset.diasParaVencer = 14;
 
     newPharmacyElement.innerHTML = `

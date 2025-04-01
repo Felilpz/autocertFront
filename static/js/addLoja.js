@@ -42,6 +42,7 @@ async function addNewPharmacy() {
         email,
         validade_certificado
     };
+    console.log(newPharmacy)
 
     try {
         const apiurl = 'http://127.0.0.1:5000/lojas'
