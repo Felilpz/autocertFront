@@ -85,9 +85,10 @@ const todayFormatted = `${day}-${monthNumber}-${yearNumber}`;
 
 //     return `${year}-${month}-${day}`;
 // }
+//data para mostrar em
 
 
 updateDateAndTime();
 setInterval(updateDateAndTime, 1000);
 
-export { todayFormatted, formatDate }
+export { todayFormatted }

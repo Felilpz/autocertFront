@@ -21,8 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     const email = lojaDiv.dataset.email;
                     const diasParaVencer = lojaDiv.dataset.diasParaVencer;
                     const validade_certificado = lojaDiv.dataset.validade_certificado;
-                    // console.log(lojaDiv.dataset)
-                    // console.log(razaoSocial, responsavel)
 
                     document.getElementById('cnpj').value = cnpj;
                     document.getElementById('razaoSocial').value = razaoSocial;
@@ -31,15 +29,25 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('emailContato').value = email;
                     document.getElementById('diasParaVencer').value = parseInt(diasParaVencer);
                     document.getElementById('bandeira').value = bandeira;
-                    // document.getElementById('validade_certificado').value = new Date(validade_certificado);
+
+                    //validade do certificado
                     document.getElementById('validade_certificado').value = new Date(validade_certificado).toISOString().split("T")[0];
-                    console.log(typeof validade_certificado);
-                    console.log(new Date(validade_certificado));
-                    console.log(new Date(validade_certificado).toISOString());
-                    // console.log(formatDate(validade_certificado))
+
+                    //data da proxima notificacao
+                    const data = new Date(validade_certificado);
+                    data.setDate(data.getDate() - 10);
+                    const dataFormatada = data.toISOString().split('T')[0];
+                    console.log(dataFormatada);
+                    document.getElementById('dataProximaNotificacao').value = dataFormatada;
+
+                    //dias pra vencer - 
+                    const dataAtual = new Date();
 
 
-                    // console.log("aqui" + bandeira);
+
+
+
+
 
 
                     editModal.show();
