@@ -60,7 +60,6 @@ function updateDateAndTime() {
     second.textContent = secondS.toString().padStart(2, '0');
 }
 
-
 //storing date
 const today = new Date();
 const day = today.getDate().toString().padStart(2, '0');

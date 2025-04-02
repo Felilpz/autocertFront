@@ -2,6 +2,7 @@ import { limitarCaracteres, validateEmail } from './utils.js';
 import { carregarLojas } from './script.js';
 import { todayFormatted } from './date.js';
 
+let validade_certificado;
 
 async function addNewPharmacy() {
     const cnpj = document.getElementById('add-cnpj-modal').value.trim();
@@ -62,6 +63,8 @@ async function addNewPharmacy() {
             return;
         }
 
+
+
         const data = await response.json();
         console.log('Dados enviados com sucesso:', data);
         console.log(responsavel + 'paipy')
@@ -93,3 +96,4 @@ telefoneInput.insertAdjacentElement('afterend', telefoneMensagem);
 limitarCaracteres(telefoneInput, 11, telefoneMensagem);
 
 export { addNewPharmacy };
+export { validade_certificado };
