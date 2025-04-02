@@ -33,18 +33,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     //validade do certificado
                     document.getElementById('validade_certificado').value = new Date(validade_certificado).toISOString().split("T")[0];
 
-                    //data da proxima notificacao
+                    //data da proxima notificacao (data do vencimento - 15)
                     const data = new Date(validade_certificado);
-                    data.setDate(data.getDate() - 10);
+                    data.setDate(data.getDate() - 15);
                     const dataFormatada = data.toISOString().split('T')[0];
                     console.log(dataFormatada);
                     document.getElementById('dataProximaNotificacao').value = dataFormatada;
 
-                    //dias pra vencer - 
-                    const dataAtual = new Date();
-
-
-
+                    //dias pra vencer (validade - dia de hoje)
+                    const validadeCertificado = new Date(validade_certificado)
+                    const hoje = new Date()
+                    const milisec = validadeCertificado - hoje
+                    const diasCalc = Math.ceil(milisec / (1000 * 60 * 60 * 24))
+                    console.log(diasCalc)
+                    document.getElementById('diasParaVencer').value = diasCalc
 
 
 

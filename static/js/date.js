@@ -68,25 +68,6 @@ const monthNumber = (today.getMonth() + 1).toString().padStart(2, '0');
 const yearNumber = today.getFullYear().toString();
 
 const todayFormatted = `${day}-${monthNumber}-${yearNumber}`;
-// console.log(todayFormatted)
-
-// function formatDate(dateString) {
-//     const date = new Date(dateString);
-
-//     // Check if the date is valid
-//     if (isNaN(date.getTime())) {
-//         console.error("Invalid date format:", dateString);
-//         return "Invalid Date"; // Or handle the error as needed
-//     }
-
-//     const day = String(date.getUTCDate()).padStart(2, '0');
-//     const month = String(date.getUTCMonth() + 1).padStart(2, '0');
-//     const year = String(date.getUTCFullYear());
-
-//     return `${year}-${month}-${day}`;
-// }
-//data para mostrar em
-
 
 updateDateAndTime();
 setInterval(updateDateAndTime, 1000);
