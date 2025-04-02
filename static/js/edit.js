@@ -1,9 +1,12 @@
 import { limitarCaracteres, validateEmail } from './utils.js';
 // import { formatDate } from './date.js';
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.side-right-content').addEventListener('click', function (event) {
         if (event.target.closest('.button-editar')) {
+
 
             const button = event.target.closest('.button-editar');
             fetch('static/modals/edit.html')
@@ -33,11 +36,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     //validade do certificado
                     document.getElementById('validade_certificado').value = new Date(validade_certificado).toISOString().split("T")[0];
 
+                    // console.log(new Date(validade_certificado).toISOString().split("T")[0]);
+
+
                     //data da proxima notificacao (data do vencimento - 15)
                     const data = new Date(validade_certificado);
                     data.setDate(data.getDate() - 15);
                     const dataFormatada = data.toISOString().split('T')[0];
-                    console.log(dataFormatada);
+                    // console.log(dataFormatada);
                     document.getElementById('dataProximaNotificacao').value = dataFormatada;
 
                     //dias pra vencer (validade - dia de hoje)
@@ -45,7 +51,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     const hoje = new Date()
                     const milisec = validadeCertificado - hoje
                     const diasCalc = Math.ceil(milisec / (1000 * 60 * 60 * 24))
-                    console.log(' atata' + diasCalc)
+                    console.log(typeof diasCalc)
+                    console.log(diasCalc - 2)
+
+
                     document.getElementById('diasParaVencer').value = diasCalc
 
 
@@ -114,3 +123,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
