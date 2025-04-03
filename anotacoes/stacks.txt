@@ -2,7 +2,7 @@
 
 Front-End:
 * Bootstrap
-* HTML5
+* 5
 * CSS3
 * JAVASCRIPT
 

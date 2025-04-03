@@ -35,4 +35,33 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('lojasVencendo').textContent = lojasVencendo;
         })
         .catch(error => console.error("erro no carregar das lojas", error));
+
+    fetch(apiurl)
+        .then(response => response.json())
+        .then(data => {
+
+            const lojasVencendo = data.filter(loja => {
+                const validadeCertificado = new Date(loja.validade_certificado)
+                const hoje = new Date()
+                const milisec = new Date(validadeCertificado - hoje)
+                const diasCalc = Math.ceil(milisec / (1000 * 60 * 60 * 24))
+                return diasCalc <= 15;
+            });
+
+
+            const modalBody = document.getElementById('corpoLojasVencendo')
+            modalBody.innerHTML = '';
+
+            lojasVencendo.forEach(loja => {
+                const lojaElement = document.createElement('div');
+                lojaElement.innerHTML = `
+                <p class="cnpj">CNPJ: ${loja.cnpj}</p>
+                <p>Razão Social: ${loja.razaosocial}</p>
+                <hr>
+                `;
+                modalBody.appendChild(lojaElement);
+                console.log(lojaElement)
+            });
+            console.log(lojasVencendo)
+        })
 });
