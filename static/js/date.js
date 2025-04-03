@@ -69,5 +69,3 @@ const todayFormatted = `${day}-${monthNumber}-${yearNumber}`;
 
 updateDateAndTime();
 setInterval(updateDateAndTime, 1000);
-
-export { todayFormatted }

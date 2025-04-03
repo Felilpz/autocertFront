@@ -1,5 +1,3 @@
-import { limitarCaracteres, validateEmail, differenceUntilToday } from './utils.js';
-
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.side-right-content').addEventListener('click', function (event) {
         if (event.target.closest('.button-editar')) {

@@ -4,7 +4,6 @@ function cnpjCount() {
     // console.log(cnpjCount, typeof cnpjCount)
     // console.log(cnpjCountNumber)
 
-    const apiurl = 'http://127.0.0.1:5000/lojas'
     fetch(apiurl)
         .then(response => response.json())
         .then(data => {

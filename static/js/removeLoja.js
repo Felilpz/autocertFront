@@ -1,6 +1,3 @@
-import { limitarCaracteres } from './utils.js';
-import { carregarLojas } from './script.js';
-
 const removeCNPJ = document.getElementById('remove-cnpj').addEventListener('click', async function () {
     // console.log('click funcionando');
 

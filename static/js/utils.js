@@ -1,3 +1,5 @@
+const apiurl = 'http://127.0.0.1:5000/lojas';
+
 function limitarCaracteres(input, maxLength, mensagemElement) {
     input.addEventListener('input', function () {
         const valor = input.value.trim();
@@ -43,5 +45,3 @@ function differenceUntilToday(dateReference) {
 
     return dta.diff(dtb, 'days');
 }
-
-export { limitarCaracteres, validateEmail, differenceUntilToday };

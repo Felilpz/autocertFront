@@ -1,7 +1,3 @@
-import { limitarCaracteres, validateEmail } from './utils.js';
-import { carregarLojas } from './script.js';
-import { todayFormatted } from './date.js';
-
 let validade_certificado;
 
 async function addNewPharmacy() {
@@ -46,7 +42,6 @@ async function addNewPharmacy() {
     console.log(newPharmacy)
 
     try {
-        const apiurl = 'http://127.0.0.1:5000/lojas'
         const response = await fetch(apiurl, {
             method: 'POST',
             headers: {
@@ -94,6 +89,3 @@ telefoneMensagem.style.color = 'red';
 telefoneMensagem.style.fontSize = '12px';
 telefoneInput.insertAdjacentElement('afterend', telefoneMensagem);
 limitarCaracteres(telefoneInput, 11, telefoneMensagem);
-
-export { addNewPharmacy };
-export { validade_certificado };

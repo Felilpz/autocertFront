@@ -1,13 +1,3 @@
-// /home/felilpz/Desktop/projetos/autocertFront/static/js/script.js
-import { differenceUntilToday } from './utils.js';
-import { todayFormatted } from './date.js';
-import { validade_certificado } from './addLoja.js';
-
-let apiurl = 'http://127.0.0.1:5000/lojas';
-
-
-
-
 function carregarLojas() {
     fetch(apiurl)
         .then(response => response.json())
@@ -70,5 +60,3 @@ function exibirNovaLoja(loja) {
 }
 
 document.addEventListener("DOMContentLoaded", carregarLojas);
-
-export { carregarLojas };
