@@ -1,7 +1,9 @@
 const apiurl = 'http://127.0.0.1:5000/lojas';
+
 fetch(apiurl)
     .then(response => response.json())
     .then(data => {
+
         const lojasVencendo = data.reduce((acc, loja) => {
             // a logica nao pode ser baseada no resltado do array, preciso primeiro pegar a a validade_certificado e e fazer todos os calculos até que me retorne o o valor <= 15 dias. nao posso tambem esquecer de 
             const validadeCertificado = new Date(loja.validade_certificado)
@@ -60,8 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 <hr>
                 `;
                 modalBody.appendChild(lojaElement);
-                console.log(lojaElement)
             });
-            console.log(lojasVencendo)
         })
 });

@@ -34,4 +34,14 @@ function validateEmail(email) {
     return emailRegex.test(email);
 }
 
-export { limitarCaracteres, validateEmail };
+function differenceUntilToday(dateReference) {
+
+    moment.locale('pt-br');
+
+    const dta = moment(dateReference);
+    const dtb = moment();
+
+    return dta.diff(dtb, 'days');
+}
+
+export { limitarCaracteres, validateEmail, differenceUntilToday };

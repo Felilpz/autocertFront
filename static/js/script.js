@@ -1,4 +1,5 @@
 // /home/felilpz/Desktop/projetos/autocertFront/static/js/script.js
+import { differenceUntilToday } from './utils.js';
 import { todayFormatted } from './date.js';
 import { validade_certificado } from './addLoja.js';
 
@@ -40,11 +41,10 @@ function exibirNovaLoja(loja) {
     newPharmacyElement.dataset.email = loja.email;
     newPharmacyElement.dataset.validade_certificado = loja.validade_certificado;
     // newPharmacyElement.dataset.diasParaVencer = 14;
-    const validadeCertificado = new Date(loja.validade_certificado)
-    const hoje = new Date()
-    const milisec = new Date(validadeCertificado - hoje)
-    const diasCalc = Math.ceil(milisec / (1000 * 60 * 60 * 24))
-    newPharmacyElement.dataset.diasParaVencer = diasCalc;
+
+    const diffDays = differenceUntilToday(loja.validade_certificado);
+
+    newPharmacyElement.dataset.diasParaVencer = diffDays;
 
 
     newPharmacyElement.innerHTML = `
@@ -55,7 +55,7 @@ function exibirNovaLoja(loja) {
                 <p>${loja.razaosocial}</p>
             </div>
             <div class="dias-para-vencer">
-                <p>${diasCalc}</p>
+                <p>${diffDays}</p>
             </div>
             <div class="buttons-to-act">
                 <button type="button" class="button-editar">

@@ -1,4 +1,4 @@
-import { limitarCaracteres, validateEmail } from './utils.js';
+import { limitarCaracteres, validateEmail, differenceUntilToday } from './utils.js';
 
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.side-right-content').addEventListener('click', function (event) {
@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('bandeira').value = bandeira;
 
                     //validade do certificado
-                    document.getElementById('validade_certificado').value = new Date(validade_certificado).toISOString().split("T")[0];
+                    // document.getElementById('validade_certificado').value = new Date(validade_certificado).toISOString().split("T")[0];
+                    document.getElementById('validade_certificado').value = moment(validade_certificado).format('YYYY-MM-DD');
 
                     //data da proxima notificacao (data do vencimento - 15)
                     const data = new Date(validade_certificado);
@@ -40,13 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('dataProximaNotificacao').value = dataFormatada;
 
                     //dias pra vencer (validade - dia de hoje)
-                    const validadeCertificado = new Date(validade_certificado)
-                    const hoje = new Date()
-                    const milisec = validadeCertificado - hoje
-                    const diasCalc = Math.round(milisec / (1000 * 60 * 60 * 24))
-                    document.getElementById('diasParaVencer').value = diasCalc
-                    //descobrir o porque quando chega em um certo horario do dia, ao inves de contar um positivo, conta um negativo e ignora o 0 (neutro)
-
+                    document.getElementById('diasParaVencer').value = differenceUntilToday(validade_certificado);
 
                     editModal.show();
                     const editCnpjInput = document.getElementById('cnpj');
