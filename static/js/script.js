@@ -1,8 +1,7 @@
+// /home/felilpz/Desktop/projetos/autocertFront/static/js/script.js
 import { todayFormatted } from './date.js';
 import { validade_certificado } from './addLoja.js';
 
-
-// /home/felilpz/Desktop/projetos/autocertFront/static/js/script.js
 let apiurl = 'http://127.0.0.1:5000/lojas';
 
 
@@ -45,6 +44,7 @@ function exibirNovaLoja(loja) {
     const hoje = new Date()
     const milisec = new Date(validadeCertificado - hoje)
     const diasCalc = Math.ceil(milisec / (1000 * 60 * 60 * 24))
+    newPharmacyElement.dataset.diasParaVencer = diasCalc;
 
 
     newPharmacyElement.innerHTML = `

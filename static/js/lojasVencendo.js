@@ -4,7 +4,11 @@ fetch(apiurl)
     .then(data => {
         const lojasVencendo = data.reduce((acc, loja) => {
             // a logica nao pode ser baseada no resltado do array, preciso primeiro pegar a a validade_certificado e e fazer todos os calculos até que me retorne o o valor <= 15 dias. nao posso tambem esquecer de 
-            if (loja.diasParaVencer <= 15) {
+            const validadeCertificado = new Date(loja.validade_certificado)
+            const hoje = new Date()
+            const milisec = new Date(validadeCertificado - hoje)
+            const diasCalc = Math.ceil(milisec / (1000 * 60 * 60 * 24))
+            if (diasCalc <= 15) {
                 return acc + 1;
             }
             return acc;
@@ -19,7 +23,11 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             const lojasVencendo = data.reduce((acc, loja) => {
-                if (loja.diasParaVencer <= 15) {
+                const validadeCertificado = new Date(loja.validade_certificado)
+                const hoje = new Date()
+                const milisec = new Date(validadeCertificado - hoje)
+                const diasCalc = Math.ceil(milisec / (1000 * 60 * 60 * 24))
+                if (diasCalc <= 15) {
                     return acc + 1;
                 }
                 return acc;
