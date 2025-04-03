@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const validadeCertificado = new Date(validade_certificado)
                     const hoje = new Date()
                     const milisec = validadeCertificado - hoje
-                    const diasCalc = Math.ceil(milisec / (1000 * 60 * 60 * 24))
+                    const diasCalc = Math.ceil(milisec / (1000 * 60 * 60 * 24) + 1)
                     document.getElementById('diasParaVencer').value = diasCalc
 
 

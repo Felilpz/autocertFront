@@ -43,7 +43,7 @@ function exibirNovaLoja(loja) {
     const validadeCertificado = new Date(loja.validade_certificado)
     const hoje = new Date()
     const milisec = new Date(validadeCertificado - hoje)
-    const diasCalc = Math.ceil(milisec / (1000 * 60 * 60 * 24))
+    const diasCalc = Math.ceil(milisec / (1000 * 60 * 60 * 24) + 1)
     newPharmacyElement.dataset.diasParaVencer = diasCalc;
 
 
