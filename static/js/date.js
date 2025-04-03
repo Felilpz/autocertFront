@@ -20,7 +20,6 @@ function updateDateAndTime() {
     const minuteS = now.getMinutes();
     const secondS = now.getSeconds();
 
-    // switch case for day of the wek
     const diasDaSemana = {
         0: 'Domingo',
         1: 'Segunda-Feira',
