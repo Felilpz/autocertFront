@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const milisec = validadeCertificado - hoje
                     const diasCalc = Math.round(milisec / (1000 * 60 * 60 * 24))
                     document.getElementById('diasParaVencer').value = diasCalc
+                    //descobrir o porque quando chega em um certo horario do dia, ao inves de contar um positivo, conta um negativo e ignora o 0 (neutro)
 
 
                     editModal.show();
