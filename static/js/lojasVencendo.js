@@ -42,9 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
             lojasVencendo.forEach(loja => {
                 const lojaElement = document.createElement('div');
                 lojaElement.innerHTML = `
-                <p class="cnpj">CNPJ: ${loja.cnpj}</p>
-                <p>Razão Social: ${loja.razaosocial}</p>
-                <hr>
+                <div>
+                    <p class="cnpj">CNPJ: ${loja.cnpj}</p>
+                </div>
+                <div>
+                    <p class="razao-social">Razao Social: ${loja.razaosocial}</p>
+                </div>
                 `;
                 modalBody.appendChild(lojaElement);
             });
