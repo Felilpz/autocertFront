@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.side-right-content').addEventListener('click', function (event) {
         if (event.target.closest('.button-editar')) {
-
-
             const button = event.target.closest('.button-editar');
             fetch('static/modals/edit.html')
                 .then(response => response.text())
@@ -19,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const email = lojaDiv.dataset.email;
                     const diasParaVencer = lojaDiv.dataset.diasParaVencer;
                     const validade_certificado = lojaDiv.dataset.validade_certificado;
+
 
                     document.getElementById('cnpj').value = cnpj;
                     document.getElementById('razaoSocial').value = razaoSocial;
@@ -56,26 +55,28 @@ document.addEventListener('DOMContentLoaded', function () {
                     editTelefoneInput.insertAdjacentElement('afterend', editTelefoneMensagem);
                     limitarCaracteres(editTelefoneInput, 11, editTelefoneMensagem);
 
+
+                    const cnpjOriginal = cnpj;
+
                     document.getElementById('saveChanges').addEventListener('click', function () {
                         let cnpj = document.getElementById('cnpj').value.trim();
                         let razaoSocial = document.getElementById('razaoSocial').value.trim();
                         let bandeira = document.getElementById('bandeira').value.trim();
-                        let validadeCertificado = document.getElementById('validadeCertificado').value.trim();
+                        let validadeCertificado = document.getElementById('validade_certificado').value.trim();
                         let responsavel = document.getElementById('nomeResponsavel').value.trim();
                         let telefoneContato = document.getElementById('telefoneContato').value.trim();
                         let emailContato = document.getElementById('emailContato').value.trim();
 
+
                         const dadosEdited = {
                             cnpj,
-                            razaosocial,
+                            razaosocial: razaoSocial,
                             bandeira,
-                            validadeCertificado,
+                            validade_certificado: validadeCertificado,
                             responsavel,
-                            telefoneContato,
-                            emailContato
+                            telefone: telefoneContato,
+                            email: emailContato
                         };
-
-                        console.log('Dados editados: ', dadosEdited);
 
                         if (!cnpj || !razaoSocial || !bandeira || !validadeCertificado || !responsavel || !telefoneContato || !emailContato) {
                             alert('Preencha todos os campos obrigatórios');
@@ -94,16 +95,42 @@ document.addEventListener('DOMContentLoaded', function () {
                             return;
                         }
 
+                        fetch(`http://127.0.0.1:5000/lojas/${cnpj}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(dadosEdited)
+                        })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error(`Erro ao atualizar loja: ${response.statusText}`)
+                                }
+
+                                return response.json()
+                            })
+                            .then(data => {
+                                alert("Loja atualizada com sucesso!")
+                                editModal.hide();
+                            })
+                            .catch(error => {
+                                console.log(error)
+                                alert(`Erro ao atualizar loja: ${error.message}`)
+                            })
+
                         editModal.hide();
                     });
+
+
 
                     document.getElementById('editModal').addEventListener('hidden.bs.modal', function () {
                         document.getElementById('modalContainer').innerHTML = '';
                     });
                 })
                 .catch(error => console.error('Erro ao carregar o modal:', error));
+
+
         }
     });
 });
-
 
