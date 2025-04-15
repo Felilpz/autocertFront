@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const email = lojaDiv.dataset.email;
                     const diasParaVencer = lojaDiv.dataset.diasParaVencer;
                     const validade_certificado = lojaDiv.dataset.validade_certificado;
+                    
 
                     document.getElementById('cnpj').value = cnpj;
                     document.getElementById('razaoSocial').value = razaoSocial;
@@ -56,27 +57,27 @@ document.addEventListener('DOMContentLoaded', function () {
                     editTelefoneInput.insertAdjacentElement('afterend', editTelefoneMensagem);
                     limitarCaracteres(editTelefoneInput, 11, editTelefoneMensagem);
 
-                    document.getElementById('saveChanges').addEventListener('click', function () {
+                    document.getElementById('saveChanges').addEventListener('click', async function () {
                         let cnpj = document.getElementById('cnpj').value.trim();
                         let razaoSocial = document.getElementById('razaoSocial').value.trim();
                         let bandeira = document.getElementById('bandeira').value.trim();
-                        let validadeCertificado = document.getElementById('validadeCertificado').value.trim();
+                        let validadeCertificado = document.getElementById('validade_certificado').value.trim();
                         let responsavel = document.getElementById('nomeResponsavel').value.trim();
                         let telefoneContato = document.getElementById('telefoneContato').value.trim();
                         let emailContato = document.getElementById('emailContato').value.trim();
-
+                    
                         const dadosEdited = {
                             cnpj,
-                            razaosocial,
+                            razaoSocial,
                             bandeira,
                             validadeCertificado,
                             responsavel,
                             telefoneContato,
                             emailContato
                         };
-
+                    
                         console.log('Dados editados: ', dadosEdited);
-
+                    
                         if (!cnpj || !razaoSocial || !bandeira || !validadeCertificado || !responsavel || !telefoneContato || !emailContato) {
                             alert('Preencha todos os campos obrigatórios');
                             return;
@@ -90,12 +91,37 @@ document.addEventListener('DOMContentLoaded', function () {
                             return;
                         }
                         if (!validateEmail(emailContato)) {
-                            alert('formato de email invalido.');
+                            alert('Formato de email inválido.');
                             return;
                         }
-
+                    
+                        try {
+                            const response = await fetch(`${apiurl}/${cnpj}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(dadosEdited)
+                            });
+                    
+                            if (!response.ok) {
+                                const errorText = await response.text();
+                                console.error(`Erro ao atualizar: ${response.status} - ${errorText}`);
+                                alert('Erro ao atualizar a loja.');
+                                return;
+                            }
+                    
+                            const data = await response.json();
+                            console.log('Loja atualizada com sucesso:', data);
+                            alert('Loja atualizada com sucesso!');
+                        } catch (error) {
+                            console.error('Erro ao enviar dados:', error);
+                            alert('Erro ao enviar os dados.');
+                        }
+                    
                         editModal.hide();
                     });
+                    
 
                     document.getElementById('editModal').addEventListener('hidden.bs.modal', function () {
                         document.getElementById('modalContainer').innerHTML = '';
@@ -105,5 +131,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+
 
 
