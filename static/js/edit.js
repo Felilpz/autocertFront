@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.side-right-content').addEventListener('click', function (event) {
         if (event.target.closest('.button-editar')) {
-
-
             const button = event.target.closest('.button-editar');
             fetch('static/modals/edit.html')
                 .then(response => response.text())
@@ -20,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const diasParaVencer = lojaDiv.dataset.diasParaVencer;
                     const validade_certificado = lojaDiv.dataset.validade_certificado;
                     
+
 
                     document.getElementById('cnpj').value = cnpj;
                     document.getElementById('razaoSocial').value = razaoSocial;
@@ -57,7 +56,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     editTelefoneInput.insertAdjacentElement('afterend', editTelefoneMensagem);
                     limitarCaracteres(editTelefoneInput, 11, editTelefoneMensagem);
 
+<<<<<<< HEAD
                     document.getElementById('saveChanges').addEventListener('click', async function () {
+=======
+
+                    const cnpjOriginal = cnpj;
+
+                    document.getElementById('saveChanges').addEventListener('click', function () {
+>>>>>>> c3774c5e96414c9771f97af5d288cc038b3791e6
                         let cnpj = document.getElementById('cnpj').value.trim();
                         let razaoSocial = document.getElementById('razaoSocial').value.trim();
                         let bandeira = document.getElementById('bandeira').value.trim();
@@ -65,19 +71,31 @@ document.addEventListener('DOMContentLoaded', function () {
                         let responsavel = document.getElementById('nomeResponsavel').value.trim();
                         let telefoneContato = document.getElementById('telefoneContato').value.trim();
                         let emailContato = document.getElementById('emailContato').value.trim();
+<<<<<<< HEAD
                     
                         const dadosEdited = {
                             cnpj,
                             razaoSocial,
+=======
+
+
+                        const dadosEdited = {
+                            cnpj,
+                            razaosocial: razaoSocial,
+>>>>>>> c3774c5e96414c9771f97af5d288cc038b3791e6
                             bandeira,
-                            validadeCertificado,
+                            validade_certificado: validadeCertificado,
                             responsavel,
-                            telefoneContato,
-                            emailContato
+                            telefone: telefoneContato,
+                            email: emailContato
                         };
+<<<<<<< HEAD
                     
                         console.log('Dados editados: ', dadosEdited);
                     
+=======
+
+>>>>>>> c3774c5e96414c9771f97af5d288cc038b3791e6
                         if (!cnpj || !razaoSocial || !bandeira || !validadeCertificado || !responsavel || !telefoneContato || !emailContato) {
                             alert('Preencha todos os campos obrigatórios');
                             return;
@@ -94,45 +112,51 @@ document.addEventListener('DOMContentLoaded', function () {
                             alert('Formato de email inválido.');
                             return;
                         }
-                    
-                        try {
-                            const response = await fetch(`${apiurl}/${cnpj}`, {
-                                method: 'PUT',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify(dadosEdited)
-                            });
-                    
-                            if (!response.ok) {
-                                const errorText = await response.text();
-                                console.error(`Erro ao atualizar: ${response.status} - ${errorText}`);
-                                alert('Erro ao atualizar a loja.');
-                                return;
-                            }
-                    
-                            const data = await response.json();
-                            console.log('Loja atualizada com sucesso:', data);
-                            alert('Loja atualizada com sucesso!');
-                        } catch (error) {
-                            console.error('Erro ao enviar dados:', error);
-                            alert('Erro ao enviar os dados.');
-                        }
-                    
+
+                        fetch(`http://127.0.0.1:5000/lojas/${cnpj}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(dadosEdited)
+                        })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error(`Erro ao atualizar loja: ${response.statusText}`)
+                                }
+
+                                return response.json()
+                            })
+                            .then(data => {
+                                alert("Loja atualizada com sucesso!")
+                                editModal.hide();
+                            })
+                            .catch(error => {
+                                console.log(error)
+                                alert(`Erro ao atualizar loja: ${error.message}`)
+                            })
+
                         editModal.hide();
                     });
                     
+
+
 
                     document.getElementById('editModal').addEventListener('hidden.bs.modal', function () {
                         document.getElementById('modalContainer').innerHTML = '';
                     });
                 })
                 .catch(error => console.error('Erro ao carregar o modal:', error));
+
+
         }
     });
 });
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> c3774c5e96414c9771f97af5d288cc038b3791e6
