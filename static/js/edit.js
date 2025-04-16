@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     const lojaDiv = button.closest('.loja-exemplo');
                     const cnpj = lojaDiv.dataset.cnpj;
-                    // const cnpjOriginal = cnpj;
                     const razaoSocial = lojaDiv.dataset.razaoSocial;
                     const bandeira = lojaDiv.dataset.bandeira;
                     const responsavel = lojaDiv.dataset.responsavel;
@@ -19,8 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     const email = lojaDiv.dataset.email;
                     const diasParaVencer = lojaDiv.dataset.diasParaVencer;
                     const validade_certificado = lojaDiv.dataset.validade_certificado;
-
-
 
                     document.getElementById('cnpj').value = cnpj;
                     document.getElementById('razaoSocial').value = razaoSocial;
@@ -30,10 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('diasParaVencer').value = parseInt(diasParaVencer);
                     document.getElementById('bandeira').value = bandeira;
                     document.getElementById('cnpj').value = cnpj;
-                    // document.getElementById('cnpj').dataset.originalCnpj = cnpj;
 
                     //validade do certificado
-                    // document.getElementById('validade_certificado').value = new Date(validade_certificado).toISOString().split("T")[0];
                     document.getElementById('validade_certificado').value = moment(validade_certificado).format('YYYY-MM-DD');
 
                     //data da proxima notificacao (data do vencimento - 15)
@@ -60,9 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     editTelefoneInput.insertAdjacentElement('afterend', editTelefoneMensagem);
                     limitarCaracteres(editTelefoneInput, 11, editTelefoneMensagem);
 
-
-                    // const cnpjOriginal = cnpj;
-
                     document.getElementById('saveChanges').addEventListener('click', function () {
                         let cnpj = document.getElementById('cnpj').value.trim();
                         let razaoSocial = document.getElementById('razaoSocial').value.trim();
@@ -73,8 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         let emailContato = document.getElementById('emailContato').value.trim();
 
                         const cnpjOriginal = document.getElementById('cnpj').dataset.originalCnpj;
-
-                        // let cnpj = document.getElementById('cnpj').value.trim()
 
                         const dadosEdited = {
                             cnpj,
@@ -125,8 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                 console.log(error)
                                 alert(`Erro ao atualizar loja: ${error.message}`)
                             })
-
-                        // editModal.hide();
                     });
                     document.getElementById('editModal').addEventListener('hidden.bs.modal', function () {
                         document.getElementById('modalContainer').innerHTML = '';
