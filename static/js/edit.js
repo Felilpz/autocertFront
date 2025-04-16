@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const email = lojaDiv.dataset.email;
                     const diasParaVencer = lojaDiv.dataset.diasParaVencer;
                     const validade_certificado = lojaDiv.dataset.validade_certificado;
+                    const cnpjOriginal = cnpj;
 
                     document.getElementById('cnpj').value = cnpj;
                     document.getElementById('razaoSocial').value = razaoSocial;
@@ -64,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         let telefoneContato = document.getElementById('telefoneContato').value.trim();
                         let emailContato = document.getElementById('emailContato').value.trim();
 
-                        const cnpjOriginal = document.getElementById('cnpj').dataset.originalCnpj;
 
                         const dadosEdited = {
                             cnpj,
@@ -102,6 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             .then(response => {
                                 if (!response.ok) {
                                     throw new Error(`Erro ao atualizar loja: ${response.statusText}`)
+                                    console.log(cnpjOriginal)
+
                                 }
 
                                 return response.json()
@@ -113,6 +115,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             })
                             .catch(error => {
                                 console.log(error)
+                                console.log(cnpjOriginal)
+
                                 alert(`Erro ao atualizar loja: ${error.message}`)
                             })
                     });
