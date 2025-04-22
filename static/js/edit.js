@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         let cnpj = document.getElementById('cnpj').value.trim();
                         let razaoSocial = document.getElementById('razaoSocial').value.trim();
                         let bandeira = document.getElementById('bandeira').value.trim();
-                        let validadeCertificado = document.getElementById('validade_certificado').value.trim();
+                        let validadeCertificado = document.getElementById('validade_certificado').value.trim()
                         let responsavel = document.getElementById('nomeResponsavel').value.trim();
                         let telefoneContato = document.getElementById('telefoneContato').value.trim();
                         let emailContato = document.getElementById('emailContato').value.trim();
@@ -75,6 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             telefone: telefoneContato,
                             email: emailContato
                         };
+
+                        console.log(dadosEdited.validade_certificado)
                         if (!cnpj || !razaoSocial || !bandeira || !validadeCertificado || !responsavel || !telefoneContato || !emailContato) {
                             alert('Preencha todos os campos obrigatórios');
                             return;
@@ -111,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             .then(data => {
                                 alert("Loja atualizada com sucesso!")
                                 editModal.hide();
-                                carregarLojas()
+                                location.reload()
                             })
                             .catch(error => {
                                 console.log(error)
