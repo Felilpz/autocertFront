@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const email = lojaDiv.dataset.email;
                     const diasParaVencer = lojaDiv.dataset.diasParaVencer;
                     const validade_certificado = lojaDiv.dataset.validade_certificado;
+                    console.log(validade_certificado + " Valor que foi pego do dataset")
                     const cnpjOriginal = cnpj;
 
                     document.getElementById('cnpj').value = cnpj;
@@ -30,16 +31,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('cnpj').value = cnpj;
 
                     //validade do certificado
-                    document.getElementById('validade_certificado').value = moment(validade_certificado).format('YYYY-MM-DD');
+                    document.getElementById('validade_certificado').value = moment.utc(validade_certificado).format('YYYY-MM-DD');
+                    // console.log(document.getElementById('validade_certificado').value = moment(validade_certificado).format('YYYY-MM-DD') + " Validade do certificado primeiro campo")
 
                     //data da proxima notificacao (data do vencimento - 15)
-                    const data = new Date(validade_certificado);
-                    data.setDate(data.getDate() - 15);
-                    const dataFormatada = data.toISOString().split('T')[0];
+                    const data = moment.utc(validade_certificado).subtract(15, 'days');
+                    const dataFormatada = data.format('YYYY-MM-DD');
+                    console.log(dataFormatada)
                     document.getElementById('dataProximaNotificacao').value = dataFormatada;
+
 
                     //dias pra vencer (validade - dia de hoje)
                     document.getElementById('diasParaVencer').value = differenceUntilToday(validade_certificado);
+                    // console.log(document.getElementById('diasParaVencer').value = differenceUntilToday(validade_certificado) + " Dias para vencer segundo campo")
 
                     editModal.show();
                     const editCnpjInput = document.getElementById('cnpj');
@@ -76,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             email: emailContato
                         };
 
-                        console.log(dadosEdited.validade_certificado)
+                        console.log(dadosEdited.validade_certificado + " validade_certificado editada")
                         if (!cnpj || !razaoSocial || !bandeira || !validadeCertificado || !responsavel || !telefoneContato || !emailContato) {
                             alert('Preencha todos os campos obrigatórios');
                             return;

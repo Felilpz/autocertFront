@@ -37,11 +37,8 @@ function validateEmail(email) {
 }
 
 function differenceUntilToday(dateReference) {
-
-    moment.locale('pt-br');
-
-    const dta = moment(dateReference);
-    const dtb = moment();
-
-    return dta.diff(dtb, 'days');
+    const dataReferencia = moment.utc(dateReference).startOf('day');
+    const hoje = moment().utc().startOf('day');
+    return dataReferencia.diff(hoje, 'days');
 }
+
