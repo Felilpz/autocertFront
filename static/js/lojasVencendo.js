@@ -43,10 +43,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const lojaElement = document.createElement('div');
                 lojaElement.innerHTML = `
                 <div>
-                    <p class="cnpj">CNPJ: ${loja.cnpj}</p>
+                    <span>CNPJ: ${loja.cnpj}</span>
                 </div>
                 <div>
-                    <p class="razao-social">Razao Social: ${loja.razaosocial}</p>
+                    Razao Social: ${loja.razaosocial}
                 </div>
                 `;
                 modalBody.appendChild(lojaElement);

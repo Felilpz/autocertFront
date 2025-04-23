@@ -3,20 +3,28 @@ function carregarLojas() {
         .then(response => response.json())
         .then(data => {
             const container = document.querySelector('.side-right-content');
-            // container.innerHTML = '';
             const mainDiv = document.getElementById('mainDiv');
 
-            // Limpa apenas as linhas de lojas existentes (se houver)
+            // remove lojas anteriores
             const existingRows = container.querySelectorAll('.loja-exemplo');
             existingRows.forEach(row => row.remove());
 
+            data.sort((a, b) => {
+                const dateA = new Date(a.validade_certificado);
+                const dateB = new Date(b.validade_certificado);
+
+                return dateA - dateB;
+            });
+
             data.forEach(loja => {
                 const lojaRow = exibirNovaLoja(loja);
-                container.insertBefore(lojaRow, mainDiv.nextSibling);
+                container.appendChild(lojaRow);
             });
         })
         .catch(error => console.error("Erro ao carregar lojas:", error));
 }
+
+
 
 function exibirNovaLoja(loja) {
     const newPharmacyElement = document.createElement('div');
