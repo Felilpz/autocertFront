@@ -39,8 +39,11 @@
 
 # nao deixar inserir a mesma loja (mesmo cnpj)
 
+# ao atualizar o cnpj de uma loja, nao deixar atualizar para um cnpj que já existe.
+
 
 ### SEPARAR PASTAS DE CSS E CODIGOS JAVASCRIPT POSTERIORMENTE!!!!!! (URGENTE)
 ## EX: SIDE-LEFT-ONE NUMA PASTAS
 ## EX: SIDE-RIGHT EM OUTRA PAST
 
+# ADICIONAR OPÇÃO PARA FILTRAR CERTIFICADOS POR QUANTIDADE DE DIA (INPUT NUMBER) E OPÇÕES PRE DETERMINADAS (15, 30 & 60 DIAS)
