@@ -17,3 +17,5 @@
 # modal precisa fechar ao adicionar uma nova loja (location.reload()) [RESOLVIDO]
 
 # consertar bug de ao digitar uma razao social gigante (loja nova), nao ultrapassar a div! (colocar um break-word) [RESOLVIDO]
+
+### LEMBRAR QUE FICARAM EM PRIMEIRO AS LOJAS QUE TIVEREM COM O CERTIFICADO MAIS PROXIMO DE VENCER
