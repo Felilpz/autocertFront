@@ -54,11 +54,14 @@ async function addNewPharmacy() {
         if (!response.ok) {
             const errorData = await response.json();
             console.error('Erro ao enviar dados para a API:', errorData);
-            alert(`Erro ao salvar dados: ${response.statusText}`);
+
+            if (response.status === 409 && errorData.message.toLowerCase().includes('cnpj já cadastrado')) {
+                alert(`Este CNPJ já está cadastrado.\n\nStatus: ${errorData.status}`);
+            } else {
+                alert(`Erro ao salvar dados: ${response.statusText}`);
+            }
             return;
         }
-
-
 
         const data = await response.json();
         console.log('Dados enviados com sucesso:', data);
