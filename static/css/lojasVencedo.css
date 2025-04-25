@@ -1,3 +1,11 @@
 .modal-lojasvencendo h5 {
     text-align: center;
 }
+
+.proximo-vencimento {
+    background-color: #f0e1e1;
+}
+
+.vencimento-critico {
+    background-color: #f0bbbb;
+}

@@ -5,7 +5,6 @@ function carregarLojas() {
             const container = document.querySelector('.side-right-content');
             const mainDiv = document.getElementById('mainDiv');
 
-            // remove lojas anteriores
             const existingRows = container.querySelectorAll('.loja-exemplo');
             existingRows.forEach(row => row.remove());
 
@@ -24,8 +23,6 @@ function carregarLojas() {
         .catch(error => console.error("Erro ao carregar lojas:", error));
 }
 
-
-
 function exibirNovaLoja(loja) {
     const newPharmacyElement = document.createElement('div');
     newPharmacyElement.classList.add('loja-exemplo');
@@ -34,16 +31,18 @@ function exibirNovaLoja(loja) {
     newPharmacyElement.dataset.razaoSocial = loja.razaosocial;
     newPharmacyElement.dataset.bandeira = loja.bandeira;
     newPharmacyElement.dataset.responsavel = loja.responsavel;
-    // console.log(loja.responsavel)
     newPharmacyElement.dataset.telefone = loja.telefone;
     newPharmacyElement.dataset.email = loja.email;
     newPharmacyElement.dataset.validade_certificado = loja.validade_certificado;
-    // newPharmacyElement.dataset.diasParaVencer = 14;
 
     const diffDays = differenceUntilToday(loja.validade_certificado);
-
     newPharmacyElement.dataset.diasParaVencer = diffDays;
-
+    
+    if (diffDays <= 2) {
+        newPharmacyElement.classList.add('vencimento-critico');
+    } else if (diffDays <= 15) {
+        newPharmacyElement.classList.add('proximo-vencimento');
+    }
 
     newPharmacyElement.innerHTML = `
             <div class="cnpj">
