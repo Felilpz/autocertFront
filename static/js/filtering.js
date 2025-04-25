@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadOwners();
     
     const clearFiltersBtn = document.createElement('button');
-    clearFiltersBtn.textContent = 'LIMPAR FILTROS';
+    clearFiltersBtn.textContent = 'Limpar Filtros';
     clearFiltersBtn.className = 'btn-clear-filters';
     clearFiltersBtn.addEventListener('click', clearFilters);
     

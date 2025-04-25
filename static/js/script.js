@@ -40,6 +40,7 @@ function exibirNovaLoja(loja) {
     
     if (diffDays <= 2) {
         newPharmacyElement.classList.add('vencimento-critico');
+        
     } else if (diffDays <= 15) {
         newPharmacyElement.classList.add('proximo-vencimento');
     }
