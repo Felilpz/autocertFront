@@ -99,6 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function blurHandler() {
+        // Esconde a mensagem quando sai do input
+        mensagemElement.textContent = '';
+        
         const valor = input.value.trim();
         if (valor.length < maxLength) {
             if (maxLength === 14) {
@@ -112,16 +115,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function focusHandler() {
-        mensagemElement.textContent = '';
+        // Mostra o contador quando o input recebe foco
+        const caracteresRestantes = maxLength - input.value.length;
+        mensagemElement.textContent = `Caracteres restantes: ${caracteresRestantes}`;
     }
     
+    // Remove event listeners antigos para evitar duplicação
     input.removeEventListener('input', inputHandler);
     input.removeEventListener('blur', blurHandler);
     input.removeEventListener('focus', focusHandler);
     
+    // Adiciona os novos event listeners
     input.addEventListener('input', inputHandler);
     input.addEventListener('blur', blurHandler);
     input.addEventListener('focus', focusHandler);
     
-    inputHandler();
- }
+    // Inicializa sem mostrar a mensagem
+    mensagemElement.textContent = '';
+}

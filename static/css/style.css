@@ -427,3 +427,18 @@ option, select:has(option:checked) {
   font-style: italic;
   font-size: .9em;
 }
+
+@media screen and (max-width: 992px) {
+  /* Esconde o side-left */
+  .side-left {
+    display: none;
+  }
+  
+  /* Centraliza o side-right */
+  .side-right {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1030%;
+    max-width: 800px; /* Ajuste conforme necessário */
+  }
+}

@@ -37,13 +37,17 @@ function exibirNovaLoja(loja) {
 
     const diffDays = differenceUntilToday(loja.validade_certificado);
     newPharmacyElement.dataset.diasParaVencer = diffDays;
-    
+
     if (diffDays <= 2) {
         newPharmacyElement.classList.add('vencimento-critico');
-        
+
     } else if (diffDays <= 15) {
         newPharmacyElement.classList.add('proximo-vencimento');
     }
+
+    // let diasElemento = document.querySelector('.dias-para-vencer')
+    // console.log(diasElemento)
+
 
     newPharmacyElement.innerHTML = `
             <div class="cnpj">
@@ -64,7 +68,20 @@ function exibirNovaLoja(loja) {
                 </button>
             </div>
         `;
+
+    // console.log(diffDays)
+
+    //botei pra 5 dias pq se cair na sexta, na segunda continuará destacada porque fica com 2 dias.
+    if (diffDays <= 5) {
+        const diasElement = newPharmacyElement.querySelector('.dias-para-vencer');
+        if (diasElement) {
+            diasElement.style.fontWeight = 'bold';
+            diasElement.style.fontStyle = 'italic';
+        }
+    }
+
     return newPharmacyElement;
 }
 
 document.addEventListener("DOMContentLoaded", carregarLojas);
+
