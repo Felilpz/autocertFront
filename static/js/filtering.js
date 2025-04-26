@@ -1,16 +1,17 @@
 document.getElementById('confirm-filters').addEventListener('click', function () {
-    console.log('click filtro funcionando');
     let flagSelected = document.getElementById('filter-by-flag').value.trim();
     let ownerSelected = document.getElementById('filter-owner').value.trim();
-    
+    let periodDays = document.getElementById('by-period').value.trim()
+
     const filters = {
         flagSelected,
-        ownerSelected
+        ownerSelected,
+        periodDays
     };
-    
+
     console.log('filtros selecionados:', filters);
     applyFilters(filters);
-    
+
     document.getElementById('filter-form').reset();
     let modal = bootstrap.Modal.getInstance(document.getElementById('filterModal'));
     modal.hide();
@@ -18,11 +19,12 @@ document.getElementById('confirm-filters').addEventListener('click', function ()
 
 function applyFilters(filters) {
     const lojas = document.querySelectorAll('.loja-exemplo');
+    const hoje = moment().startOf('day');
     
     lojas.forEach(loja => {
         const bandeira = loja.dataset.bandeira;
         const responsavel = loja.dataset.responsavel;
-        
+        const vencimentoStr = loja.dataset.validade_certificado;
         let shouldShow = true;
         
         if (filters.flagSelected && bandeira !== filters.flagSelected) {
@@ -31,6 +33,20 @@ function applyFilters(filters) {
         
         if (filters.ownerSelected && responsavel !== filters.ownerSelected) {
             shouldShow = false;
+        }
+        
+        if (filters.periodDays && vencimentoStr) {
+            const vencimento = moment(vencimentoStr).startOf('day');
+            
+            if (vencimento.isValid()) {
+                const diffEmDias = Math.ceil(vencimento.diff(hoje, 'days', true));
+                
+                if (diffEmDias > filters.periodDays || diffEmDias < 0) {
+                    shouldShow = false;
+                }
+            } else {
+                shouldShow = false;
+            }
         }
         
         loja.style.display = shouldShow ? 'flex' : 'none';
@@ -44,10 +60,10 @@ async function loadOwners() {
             throw new Error('Erro ao carregar responsáveis');
         }
         const responsaveis = await response.json();
-        
+
         const ownerSelect = document.getElementById('filter-owner');
         ownerSelect.innerHTML = '<option value="">Selecionar associado</option>';
-        
+
         responsaveis.forEach(responsavel => {
             const option = document.createElement('option');
             option.value = responsavel;
@@ -59,25 +75,25 @@ async function loadOwners() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     loadOwners();
-    
+
     const clearFiltersBtn = document.createElement('button');
     clearFiltersBtn.textContent = 'Limpar Filtros';
     clearFiltersBtn.className = 'btn-clear-filters';
     clearFiltersBtn.addEventListener('click', clearFilters);
-    
+
     const modalFooter = document.querySelector('#filterModal .modal-footer');
     modalFooter.insertBefore(clearFiltersBtn, modalFooter.lastElementChild);
 });
 
 function clearFilters() {
     document.getElementById('filter-form').reset();
-    
+
     const lojas = document.querySelectorAll('.loja-exemplo');
     lojas.forEach(loja => {
         loja.style.display = 'flex';
     });
-    
+
     console.log('Filtros limpos');
 }

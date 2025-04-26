@@ -3,7 +3,8 @@
 }
 
 .btn-close-modal,
-.btn-confirm-filters {
+.btn-confirm-filters,
+.btn-select {
   color: whitesmoke;
   background-color: #051040;
   border: none;

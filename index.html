@@ -164,12 +164,12 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="add-cnpj-modal" class="form-label">CNPJ</label>
-                                <input type="number" class="form-control" id="add-cnpj-modal" value="02240668000131"
+                                <input type="number" class="form-control" id="add-cnpj-modal" placeholder="02240668000131"
                                     required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="add-razao-modal" class="form-label">Razao Social</label>
-                                <input type="text" class="form-control" id="add-razao-modal" value="Renato Cariani Corp"
+                                <input type="text" class="form-control" id="add-razao-modal" placeholder="REDE DE FARMÁCIAS ESPIRITO SANTENSE FARMES"
                                     required>
                             </div>
                         </div>
@@ -194,7 +194,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="add-cellphone-number-modal" class="form-label">Telefone</label>
                                 <input type="number" class="form-control" id="add-cellphone-number-modal"
-                                    value="27992621084" required>
+                                    placeholder="27992621084" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="add-email-modal" class="form-label">Email</label>
@@ -236,14 +236,15 @@
                 </div>
             </div>
         </div>
-    </div>
 
+    </div>
     <!-- MODAL FILTER -->
     <!-- Filter Modal -->
     <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+                    <i class="bi bi-funnel-fill"></i>
                     <h5 class="modal-title" id="filterModalLabel">
                         Aplicar Filtros
                     </h5>
@@ -261,18 +262,24 @@
                                 <option value="FARMESLOG">FarmesLog</option>
                             </select>
                         </div>
-    
+                        
                         <div class="mb-3">
                             <label for="filter-owner" class="form-label">Filtrar por Responsável</label>
                             <select class="form-select" id="filter-owner">
                                 <option value="">Todos os responsáveis</option>
                             </select>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="by-period" class="form-label">Vencimento por período</label>
+                            <input type="number" class="form-control" id="by-period" placeholder="30" required>
+                        </div>
+                        
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-close-modal" data-bs-dismiss="modal">SAIR</button>
-                    <button type="button" id="confirm-filters" class="btn-confirm-filters">CONFIRMAR FILTROS</button>
+                    <button type="button" class="btn-close-modal" data-bs-dismiss="modal">Sair</button>
+                    <button type="button" id="confirm-filters" class="btn-confirm-filters">Confirmar Filtros</button>
                 </div>
             </div>
         </div>
