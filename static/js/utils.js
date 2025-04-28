@@ -43,4 +43,3 @@ function differenceUntilToday(dateReference) {
     const hoje = moment().utc().startOf('day');
     return dataReferencia.diff(hoje, 'days');
 }
-

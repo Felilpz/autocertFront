@@ -19,3 +19,34 @@
 # consertar bug de ao digitar uma razao social gigante (loja nova), nao ultrapassar a div! (colocar um break-word) [RESOLVIDO]
 
 ### LEMBRAR QUE FICARAM EM PRIMEIRO AS LOJAS QUE TIVEREM COM O CERTIFICADO MAIS PROXIMO DE VENCER
+
+## SE A LOJA FOR NOVA E NAO TIVER CERTIFICADO DIGITAL, JOGAR ELA LA PRO TOPO E MUDAR A PARTE DE DIAS PARA VENCER PARA UM X
+
+### ao clicar em SAIR (EM TODOS OS MODAIS), LIMPAR OS CAMPOS E FECHAR O MODAL
+
+### AO CLICAR EM REMOVER LOJA, APARECER UM MODAL DE CONFIRMACAO
+
+# ESTILIZAR TODOS OS MODAIS 
+
+# FAZER FILTRO DAS LOJAS VENCENDO EM 15 DIAS
+
+# BOTAR PRA FUNCIONAR O BOTAO DE EDICAO LOJA
+
+# NUMERO DE DIGITOS MINIMO EM CNPJ = 14 (NAO OMITIR O 0 INICIAL)
+
+# REMOVER DIAS PARA VENCER NA HORA DE EDITAR A LOJA
+
+# diminuir tamanho de todos os BOTOES
+# consertar bug do ctrl v no botao de adicionar nova loja (cnpj aparece faltando 14 caracteres (quando esta formatado com tracos e barras) e ao chegar no primeiro pontop, apaga o ultimo digito)
+
+# diminuir tamanho da font do input em remover loja
+
+# todos os inputs precisam ser escritos com cada tipo de dado (number = input number, string = input string, int = input int)
+
+# AO ADICIONAR NOVA LOJA, POR MAIS QUE APARECAM OS CARACTERES RESTANTES, APENAS LIBERAR O ENVIO SE TODOS OS CARACTERES (NUMBERS) ESTIVEREM PREENCHIDOS.
+
+# nao deixar inserir a mesma loja (mesmo cnpj)
+
+# ao atualizar o cnpj de uma loja, nao deixar atualizar para um cnpj que já existe.
+
+# ADICIONAR OPÇÃO PARA FILTRAR CERTIFICADOS POR QUANTIDADE DE DIA (INPUT NUMBER) E OPÇÕES PRE DETERMINADAS (15, 30 & 60 DIAS) [melhorado]

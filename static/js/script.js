@@ -35,43 +35,41 @@ function exibirNovaLoja(loja) {
     newPharmacyElement.dataset.email = loja.email;
     newPharmacyElement.dataset.validade_certificado = loja.validade_certificado;
 
+    if (loja.notificacao) {
+        newPharmacyElement.dataset.notificacao = 'true';
+    } else {
+        newPharmacyElement.dataset.notificacao = 'false';
+    }
+
     const diffDays = differenceUntilToday(loja.validade_certificado);
     newPharmacyElement.dataset.diasParaVencer = diffDays;
 
     if (diffDays <= 2) {
         newPharmacyElement.classList.add('vencimento-critico');
-
     } else if (diffDays <= 15) {
         newPharmacyElement.classList.add('proximo-vencimento');
     }
 
-    // let diasElemento = document.querySelector('.dias-para-vencer')
-    // console.log(diasElemento)
-
-
     newPharmacyElement.innerHTML = `
-            <div class="cnpj">
-                <p>${loja.cnpj}</p>
-            </div>
-            <div class="razao-social">
-                <p>${loja.razaosocial}</p>
-            </div>
-            <div class="dias-para-vencer">
-                <p>${diffDays}</p>
-            </div>
-            <div class="buttons-to-act">
-                <button type="button" class="button-editar">
-                    <i class="bi bi-pencil-square"></i>
-                </button>
-                <button type="button" class="button-enviar" id="notify">
-                    <i class="bi bi-bell-fill"></i>
-                </button>
-            </div>
-        `;
+        <div class="cnpj">
+            <p>${loja.cnpj}</p>
+        </div>
+        <div class="razao-social">
+            <p>${loja.razaosocial}</p>
+        </div>
+        <div class="dias-para-vencer">
+            <p>${diffDays}</p>
+        </div>
+        <div class="buttons-to-act">
+            <button type="button" class="button-editar">
+                <i class="bi bi-pencil-square"></i>
+            </button>
+            <button type="button" class="button-enviar" id="notify">
+                <i class="bi bi-bell-fill"></i>
+            </button>
+        </div>
+    `;
 
-    // console.log(diffDays)
-
-    //botei pra 5 dias pq se cair na sexta, na segunda continuará destacada porque fica com 2 dias.
     if (diffDays <= 5) {
         const diasElement = newPharmacyElement.querySelector('.dias-para-vencer');
         if (diasElement) {
@@ -80,8 +78,38 @@ function exibirNovaLoja(loja) {
         }
     }
 
+    if (loja.notificacao === true) {
+        applyStyle(newPharmacyElement);
+    }
+
     return newPharmacyElement;
 }
 
-document.addEventListener("DOMContentLoaded", carregarLojas);
+function applyStyle(lojaDiv) {
+    removeStyle(lojaDiv);
+    
+    if (!lojaDiv.querySelector('.notificado-badge')) {
+        const badge = document.createElement('div');
+        badge.classList.add('notificado-badge');
+        badge.textContent = 'NOTIFICADO';
+        
+        lojaDiv.appendChild(badge);
+    }
+}
 
+
+function removeStyle(lojaDiv) {
+    const elementos = lojaDiv.querySelectorAll('p');
+    elementos.forEach(elemento => {
+        elemento.style.fontStyle = 'normal';
+    });
+    
+    lojaDiv.style.border = 'none';
+    
+    const badge = lojaDiv.querySelector('.notificado-badge');
+    if (badge) {
+        badge.remove();
+    }
+}
+
+document.addEventListener("DOMContentLoaded", carregarLojas);

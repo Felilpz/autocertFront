@@ -41,7 +41,7 @@ function applyFilters(filters) {
             if (vencimento.isValid()) {
                 const diffEmDias = Math.ceil(vencimento.diff(hoje, 'days', true));
                 
-                if (diffEmDias > filters.periodDays || diffEmDias < 0) {
+                if (diffEmDias > filters.periodDays) {
                     shouldShow = false;
                 }
             } else {

@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.side-right-content').addEventListener('click', function (event) {
         if (event.target.closest('.button-editar')) {
-
             const button = event.target.closest('.button-editar');
             fetch('static/modals/edit.html')
                 .then(response => response.text())
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const email = lojaDiv.dataset.email;
                     const diasParaVencer = lojaDiv.dataset.diasParaVencer;
                     const validade_certificado = lojaDiv.dataset.validade_certificado;
-                    console.log(validade_certificado + " Valor que foi pego do dataset")
+                    console.log(validade_certificado + " Valor que foi pego do dataset");
                     const cnpjOriginal = cnpj;
 
                     document.getElementById('cnpj').value = cnpj;
@@ -28,24 +27,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('emailContato').value = email;
                     document.getElementById('diasParaVencer').value = parseInt(diasParaVencer);
                     document.getElementById('bandeira').value = bandeira;
-                    document.getElementById('cnpj').value = cnpj;
 
-                    //validade do certificado
+                    // Validade do certificado
                     document.getElementById('validade_certificado').value = moment.utc(validade_certificado).format('YYYY-MM-DD');
-                    // console.log(document.getElementById('validade_certificado').value = moment(validade_certificado).format('YYYY-MM-DD') + " Validade do certificado primeiro campo")
 
-                    //data da proxima notificacao (data do vencimento - 15)
+                    // Data da próxima notificação (validade - 15 dias)
                     const data = moment.utc(validade_certificado).subtract(15, 'days');
                     const dataFormatada = data.format('YYYY-MM-DD');
-                    console.log(dataFormatada)
+                    console.log(dataFormatada);
                     document.getElementById('dataProximaNotificacao').value = dataFormatada;
 
-
-                    //dias pra vencer (validade - dia de hoje)
+                    // Dias para vencer (validade - hoje)
                     document.getElementById('diasParaVencer').value = differenceUntilToday(validade_certificado);
-                    // console.log(document.getElementById('diasParaVencer').value = differenceUntilToday(validade_certificado) + " Dias para vencer segundo campo")
 
                     editModal.show();
+                    
                     const editCnpjInput = document.getElementById('cnpj');
                     const editCnpjMensagem = document.createElement('div');
                     editCnpjMensagem.style.color = 'red';
@@ -64,12 +60,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         let cnpj = document.getElementById('cnpj').value.trim();
                         let razaoSocial = document.getElementById('razaoSocial').value.trim();
                         let bandeira = document.getElementById('bandeira').value.trim();
-                        let validadeCertificado = document.getElementById('validade_certificado').value.trim()
+                        let validadeCertificado = document.getElementById('validade_certificado').value.trim();
                         let responsavel = document.getElementById('nomeResponsavel').value.trim();
                         let telefoneContato = document.getElementById('telefoneContato').value.trim();
                         let emailContato = document.getElementById('emailContato').value.trim();
-
-
+                    
                         const dadosEdited = {
                             cnpj,
                             razaosocial: razaoSocial,
@@ -77,10 +72,13 @@ document.addEventListener('DOMContentLoaded', function () {
                             validade_certificado: validadeCertificado,
                             responsavel,
                             telefone: telefoneContato,
-                            email: emailContato
+                            email: emailContato,
+                            notificacao: false
                         };
-
-                        console.log(dadosEdited.validade_certificado + " validade_certificado editada")
+                    
+                        console.log(dadosEdited.validade_certificado + " validade_certificado editada");
+                    
+                        // Validações
                         if (!cnpj || !razaoSocial || !bandeira || !validadeCertificado || !responsavel || !telefoneContato || !emailContato) {
                             alert('Preencha todos os campos obrigatórios');
                             return;
@@ -97,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             alert('Formato de email inválido.');
                             return;
                         }
-
+                    
                         fetch(`http://127.0.0.1:5000/lojas/${cnpjOriginal}`, {
                             method: 'PUT',
                             headers: {
@@ -105,27 +103,24 @@ document.addEventListener('DOMContentLoaded', function () {
                             },
                             body: JSON.stringify(dadosEdited)
                         })
-                            .then(response => {
-                                if (!response.ok) {
-                                    throw new Error(`Erro ao atualizar loja: ${response.statusText}`)
-                                    console.log(cnpjOriginal)
-
-                                }
-
-                                return response.json()
-                            })
-                            .then(data => {
-                                alert("Loja atualizada com sucesso!")
-                                editModal.hide();
-                                location.reload()
-                            })
-                            .catch(error => {
-                                console.log(error)
-                                console.log(cnpjOriginal)
-
-                                alert(`Erro ao atualizar loja: ${error.message}`)
-                            })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Erro ao atualizar loja: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            alert("Loja atualizada com sucesso!");
+                            editModal.hide();
+                            location.reload();
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            alert(`Erro ao atualizar loja: ${error.message}`);
+                        });
                     });
+                                       
+
                     document.getElementById('editModal').addEventListener('hidden.bs.modal', function () {
                         document.getElementById('modalContainer').innerHTML = '';
                     });

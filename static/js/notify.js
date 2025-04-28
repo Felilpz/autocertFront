@@ -1,30 +1,32 @@
-document.querySelector('.side-right-content').addEventListener('click', function (event) {
-    if (event.target.closest('.button-enviar')) {
-        console.log('Notificacao clicada');
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.side-right-content').addEventListener('click', function(event) {
+        if (event.target.closest('.button-enviar')) {
+            const button = event.target.closest('.button-enviar');
+            const lojaDiv = button.closest('.loja-exemplo');
+            const cnpj = lojaDiv.dataset.cnpj;
 
-        let name = window.prompt('Digite seu nome: ');
-        let days = document.querySelector('.dias-para-vencer p').textContent;
-
-        if (days >= 15) {
-            const notificacaoConfirm = confirm(`${name}, deseja notificar a validade do certificado a certificaminas?`);
-            if (notificacaoConfirm) {
-                console.log('Notificacao enviada no grupo do whatsapp!');
-                alert('Notificacao enviada no whatsapp do associado responsavel!');
-            } else {
-                console.log('Operacao cancelada');
+            if (confirm("Você realmente deseja marcar esta loja como notificada?")) {
+                fetch(`${apiurl}/${cnpj}/notificar`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ notificacao: true })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro na notificação da loja');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    applyStyle(lojaDiv);
+                })
+                .catch(error => {
+                    console.error("Erro ao enviar notificação:", error);
+                    alert('Erro ao enviar notificação');
+                });
             }
         }
-
-        if (days <= 14) {
-            const notificacaoConfirm = confirm(`${name}, deseja notificar o associado responsavel atraves do whatsapp e email?`);
-            if (notificacaoConfirm) {
-                console.log('Notificacao enviada no grupo do whatsapp!');
-                console.log('Notificacao enviada para o email!');
-                alert('Notificacao enviada no grupo do whatsapp!');
-                alert('Notificacao enviada para o email!');
-            } else {
-                console.log('Operacao cancelada');
-            }
-        }
-    }
+    });
 });

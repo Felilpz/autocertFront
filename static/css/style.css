@@ -371,6 +371,7 @@ a:hover {
 
   display: flex;
   justify-content: space-around;
+  position: relative;
 }
 
 .loja-exemplo p {
@@ -382,6 +383,19 @@ a:hover {
   /* padding: 20px; */
   transform: scale(1.01);
   cursor: pointer;
+}
+
+.notificado-badge {
+  position: absolute;
+  top: 1.5px;
+  left: 1.5px;
+  background-color: #ff5252;
+  color: white;
+  font-size: 9px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: bold;
+  z-index: 10;
 }
 
 .buttons-to-act {
