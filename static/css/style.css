@@ -190,7 +190,7 @@ a:hover {
   box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
   -webkit-box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
   -moz-box-shadow: 1px -2px 38px 8px rgba(94,203,161,0.45);
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .side-left-first h4 {
@@ -326,7 +326,7 @@ a:hover {
   /* background-color: green; */
   padding: 20px;
   border-radius: 10px;
-  text-align: center;
+  text-align: left;
   -webkit-box-shadow: 1px -3px 11px 3px rgba(5,16,64,0.25);
   -moz-box-shadow: 1px -3px 11px 3px rgba(5,16,64,0.25);
   box-shadow: 1px -3px 11px 3px rgba(5,16,64,0.25);

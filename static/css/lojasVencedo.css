@@ -31,7 +31,7 @@
     margin: 0;
     padding: 5px 0;
     word-break: break-word;
-    text-align: center;
+    text-align: left;
   } 
 
   .lojaLine:hover {

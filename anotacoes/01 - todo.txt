@@ -5,6 +5,8 @@
 
 # ACEITAR QUE O NOTIFY ERA (POR ENQUANTO) uma função para clicar e marcar ao lado
 
+# trocar o notificado por um pequeno icone e trocar a cor do botão de sino para amarelo (qando tiver notificado)
+
 ### SEPARAR PASTAS DE CSS E CODIGOS JAVASCRIPT POSTERIORMENTE!!!!!! (URGENTE)
 ## EX: SIDE-LEFT-ONE NUMA PASTAS
 ## EX: SIDE-RIGHT EM OUTRA PAST
