@@ -388,7 +388,7 @@ a:hover {
 .notificado-badge {
   position: absolute;
   top: -1px;
-  left: 0;
+  left: -1px;
   font-size: 10px;
   z-index: 10;
   padding: 0;
@@ -396,7 +396,7 @@ a:hover {
 }
 
 .bi-bookmarks-fill {
-  color: rgba(247, 247, 45, 0.829);
+  color: #051040;
 }
 
 .bi-bookmarks-fill:hover {
@@ -465,5 +465,5 @@ option, select:has(option:checked) {
 
 
 [data-notificacao="true"] .bi-bell-fill {
-  color: rgba(247, 247, 45, 0.829);
+  color: rgb(172, 172, 0);
 }
