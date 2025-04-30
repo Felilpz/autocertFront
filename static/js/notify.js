@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .then(data => {
                     applyStyle(lojaDiv);
+                    location.reload()
                 })
                 .catch(error => {
                     console.error("Erro ao enviar notificação:", error);

@@ -89,10 +89,9 @@ function applyStyle(lojaDiv) {
     removeStyle(lojaDiv);
     
     if (!lojaDiv.querySelector('.notificado-badge')) {
-        const badge = document.createElement('div');
+        const badge = document.createElement('div'); 
         badge.classList.add('notificado-badge');
-        badge.textContent = 'NOTIFICADO';
-        
+        badge.innerHTML = '<i class="bi bi-bookmarks-fill"></i>';
         lojaDiv.appendChild(badge);
     }
 }
