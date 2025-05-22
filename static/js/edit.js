@@ -28,20 +28,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('diasParaVencer').value = parseInt(diasParaVencer);
                     document.getElementById('bandeira').value = bandeira;
 
-                    // Validade do certificado
                     document.getElementById('validade_certificado').value = moment.utc(validade_certificado).format('YYYY-MM-DD');
 
-                    // Data da próxima notificação (validade - 15 dias)
                     const data = moment.utc(validade_certificado).subtract(15, 'days');
                     const dataFormatada = data.format('YYYY-MM-DD');
                     console.log(dataFormatada);
                     document.getElementById('dataProximaNotificacao').value = dataFormatada;
 
-                    // Dias para vencer (validade - hoje)
                     document.getElementById('diasParaVencer').value = differenceUntilToday(validade_certificado);
 
                     editModal.show();
-                    
+
                     const editCnpjInput = document.getElementById('cnpj');
                     const editCnpjMensagem = document.createElement('div');
                     editCnpjMensagem.style.color = 'red';
@@ -64,6 +61,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         let responsavel = document.getElementById('nomeResponsavel').value.trim();
                         let telefoneContato = document.getElementById('telefoneContato').value.trim();
                         let emailContato = document.getElementById('emailContato').value.trim();
+                        
+                        const lojaDiv = document.querySelector(`.loja-exemplo[data-cnpj="${cnpjOriginal}"]`);
+                        const dataAntiga = new Date(lojaDiv.dataset.validade_certificado);
+                        const dataNova = new Date(validadeCertificado);
                     
                         const dadosEdited = {
                             cnpj,
@@ -73,12 +74,11 @@ document.addEventListener('DOMContentLoaded', function () {
                             responsavel,
                             telefone: telefoneContato,
                             email: emailContato,
-                            notificacao: false
+                            notificacao: dataNova > dataAntiga ? false : lojaDiv.dataset.notificacao === 'true'
                         };
                     
                         console.log(dadosEdited.validade_certificado + " validade_certificado editada");
                     
-                        // Validações
                         if (!cnpj || !razaoSocial || !bandeira || !validadeCertificado || !responsavel || !telefoneContato || !emailContato) {
                             alert('Preencha todos os campos obrigatórios');
                             return;
@@ -119,13 +119,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             alert(`Erro ao atualizar loja: ${error.message}`);
                         });
                     });
-                                       
-
-                    document.getElementById('editModal').addEventListener('hidden.bs.modal', function () {
-                        document.getElementById('modalContainer').innerHTML = '';
-                    });
                 })
-                .catch(error => console.error('Erro ao carregar o modal:', error));
+                .catch (error => console.error('Erro ao carregar o modal:', error));
         }
     });
 });
